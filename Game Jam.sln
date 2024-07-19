@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game Jam", "Game Jam.csproj", "{A89259CD-7BA3-447B-B99F-E0BBC6C2B9FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A89259CD-7BA3-447B-B99F-E0BBC6C2B9FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A89259CD-7BA3-447B-B99F-E0BBC6C2B9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A89259CD-7BA3-447B-B99F-E0BBC6C2B9FB}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{A89259CD-7BA3-447B-B99F-E0BBC6C2B9FB}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{A89259CD-7BA3-447B-B99F-E0BBC6C2B9FB}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{A89259CD-7BA3-447B-B99F-E0BBC6C2B9FB}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
