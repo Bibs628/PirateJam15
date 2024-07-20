@@ -7,6 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1srcd"]
 size = Vector2(64, 64)
 
+[sub_resource type="Animation" id="Animation_tmpmx"]
+resource_name = "Attack"
+
+[sub_resource type="Animation" id="Animation_pimq7"]
+resource_name = "Defense"
+
 [sub_resource type="Animation" id="Animation_143lg"]
 resource_name = "Idle"
 tracks/0/type = "value"
@@ -53,12 +59,6 @@ tracks/0/keys = {
 "values": [ExtResource("2_pvi7l"), ExtResource("3_u5fr4")]
 }
 
-[sub_resource type="Animation" id="Animation_pimq7"]
-resource_name = "Defense"
-
-[sub_resource type="Animation" id="Animation_tmpmx"]
-resource_name = "Attack"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gg05q"]
 _data = {
 "Attack": SubResource("Animation_tmpmx"),
@@ -68,9 +68,9 @@ _data = {
 "Walk": SubResource("Animation_ndd02")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 script = ExtResource("1_fo4k8")
-animationen = NodePath("AnimationPlayer")
+animation = NodePath("AnimationPlayer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(1.43051e-06, 0)

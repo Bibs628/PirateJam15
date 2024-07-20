@@ -1,16 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd01ycutk241"]
+[gd_scene load_steps=4 format=3 uid="uid://dd01ycutk241"]
 
 [ext_resource type="Texture2D" uid="uid://ctpau8qq40blg" path="res://Assets/missing.png" id="1_qkac6"]
+[ext_resource type="Script" path="res://Script/GUI.gd" id="1_yb6op"]
+[ext_resource type="Texture2D" uid="uid://bwdn8tsnx8so5" path="res://Assets/missing3.png" id="2_ieabe"]
 
-[node name="GUI" type="Control"]
+[node name="GUI" type="Control" node_paths=PackedStringArray("button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 768.0
-offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yb6op")
+button = NodePath("MarginContainer/VBoxContainer/HP")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -18,9 +20,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 170.0
-offset_top = -108.0
-offset_right = -1110.0
+offset_top = -1080.0
+offset_right = -1280.0
+offset_bottom = -972.0
 grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
@@ -35,8 +37,10 @@ texture = ExtResource("1_qkac6")
 
 [node name="HP" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
 button_mask = 0
-text = "X"
+text = "X 3"
+icon = ExtResource("2_ieabe")
 flat = true
-icon_alignment = 2
 expand_icon = true
