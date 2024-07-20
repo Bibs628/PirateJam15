@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=10 format=3 uid="uid://chcj7rlau5rj2"]
 
 [ext_resource type="PackedScene" uid="uid://dd01ycutk241" path="res://GUI/GUI.tscn" id="1_106b6"]
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_ygglc"]
 [ext_resource type="PackedScene" uid="uid://ct13kr63b2rj1" path="res://Tile.tscn" id="2_k8w5k"]
 [ext_resource type="PackedScene" uid="uid://d031nwvl3b77l" path="res://Scenes/Player.tscn" id="3_su7d1"]
+[ext_resource type="Script" path="res://Script/Camera.gd" id="3_v5rpc"]
 [ext_resource type="Texture2D" uid="uid://bwdn8tsnx8so5" path="res://Assets/missing3.png" id="4_u1vux"]
 [ext_resource type="PackedScene" uid="uid://djsy8hriunmuw" path="res://Scenes/GameOver.tscn" id="6_3uguh"]
 [ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="7_8cqol"]
@@ -13,31 +14,40 @@ size = Vector2(192, 108)
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("game_over", "player")]
 script = ExtResource("1_ygglc")
-game_over = NodePath("GameOver")
+game_over = NodePath("Gameplay/CanvasLayer/GameOver")
 player = NodePath("Gameplay/Player")
-
-[node name="GUI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_106b6")]
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
-player = NodePath("../Gameplay/Player")
-
-[node name="Camera" type="Camera2D" parent="."]
-
-[node name="GameOver" parent="." instance=ExtResource("6_3uguh")]
-z_as_relative = false
 
 [node name="Gameplay" type="Node" parent="."]
 
 [node name="Player" parent="Gameplay" instance=ExtResource("3_su7d1")]
 position = Vector2(88, -394)
 
+[node name="Camera" type="Camera2D" parent="Gameplay/Player" node_paths=PackedStringArray("player")]
+position = Vector2(6, -348)
+script = ExtResource("3_v5rpc")
+start_offset = 600.0
+player = NodePath("..")
+
 [node name="SampleTile" parent="Gameplay" instance=ExtResource("2_k8w5k")]
 position = Vector2(123, -108)
 
 [node name="SampleTile2" parent="Gameplay" instance=ExtResource("2_k8w5k")]
 position = Vector2(376, -151)
+
+[node name="SampleTile3" parent="Gameplay" instance=ExtResource("2_k8w5k")]
+position = Vector2(-134, -54)
+
+[node name="SampleTile3" parent="Gameplay/SampleTile3" instance=ExtResource("2_k8w5k")]
+position = Vector2(990, -144)
+
+[node name="SampleTile3" parent="Gameplay/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
+position = Vector2(226, -76)
+
+[node name="SampleTile3" parent="Gameplay/SampleTile3/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
+position = Vector2(230, -48)
+
+[node name="SampleTile3" parent="Gameplay/SampleTile3/SampleTile3/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
+position = Vector2(228, 2)
 
 [node name="DamageTile" type="StaticBody2D" parent="Gameplay"]
 position = Vector2(606, -209)
@@ -48,8 +58,24 @@ texture = ExtResource("4_u1vux")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/DamageTile"]
 shape = SubResource("RectangleShape2D_q32w2")
 
-[node name="Skybox" type="Sprite2D" parent="Gameplay"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Gameplay"]
+
+[node name="GUI" parent="Gameplay/CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("1_106b6")]
+z_index = 3
+offset_left = 2.0
+offset_top = -1078.0
+offset_right = 1922.0
+offset_bottom = 2.0
+player = NodePath("../../Player")
+
+[node name="GameOver" parent="Gameplay/CanvasLayer" instance=ExtResource("6_3uguh")]
+z_as_relative = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Gameplay/CanvasLayer"]
+
+[node name="Skybox" type="Sprite2D" parent="Gameplay/CanvasLayer/ParallaxBackground"]
 visibility_layer = 512
 z_index = -3
+position = Vector2(960, 540)
 scale = Vector2(10, 10)
 texture = ExtResource("7_8cqol")
