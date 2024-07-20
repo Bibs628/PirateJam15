@@ -1,15 +1,20 @@
 extends Node2D
 
-var over: Control
 @export var game_over: Control 
 @export var player: CharacterBody2D
 
-# Called when the node enters the scene tree for the first time.
+signal game_over_signal
+
 func _ready():
 	game_over.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if player.health_points == 0:
-		game_over.visible = true
+		emit_signal("game_over_signal")
+
+
+func player_alchemist_status(status):
+	#TODO: Alchemist Status
+	if status == "Normal":
+		pass

@@ -1,13 +1,11 @@
 extends Control
 
-@export var button: Button
 @export var player: CharacterBody2D
+@export var panel: Panel
 
 
-func _ready():
-	button.text = str(player.health_points)
-
-
-func _process(_delta):
-	# TODO: ABSOLUT BESCHISSENE UND HACKY LOESUNG. SO BALD WIE MOEGLICH AENDERN!!!!!!
-	button.text = str(player.health_points)
+func health_bar_manager(health_points):
+	var container: HBoxContainer = panel.get_node("HBoxContainer")
+	var health_bars = container.get_node("AlchHP").get_children()
+	for i in range(health_bars.size()):
+		health_bars[i].visible = i < health_points

@@ -10,7 +10,7 @@ func _ready():
 	position.y = player.position.y + start_offset / 6
 
 
-func _process(delta):
+func _process(_delta):
 	#TODO: Komplettes Rewrite der _process-Funktion.
 	#TODO: Mathematisches Angleichen der Kamera
 	#TODO: Rueckwaertsfunktion fuer Backtracking (Left/Right Input?)

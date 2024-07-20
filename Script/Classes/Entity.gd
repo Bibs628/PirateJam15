@@ -10,19 +10,19 @@ extends CharacterBody2D
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _init():
-	print("Entity spawned.")
+func _init(name: String = "Entity"):
+	print("Entity \"%s\" spawned." % name)
 
-"""Entity fuegt Schaden zu."""
+
 func _deal_damage():
 	# TODO: Entity uebt Schaden aus.
 	animation.play("Attack")
-	
+	emit_signal("Attack")
 
-"""Entity nimmt Schaden."""
+
 func _take_damage(dmg: int):
 	health_points -= dmg
 	animation.play("Defense")
+	emit_signal("Defense")
 	
-	if health_points < 0:
-		health_points = 0
+	if health_points < 0: health_points = 0

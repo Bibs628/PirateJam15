@@ -85,3 +85,5 @@ root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_gg05q")
 }
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]

@@ -2,30 +2,26 @@ extends Entity
 
 # "Alchemistischer State; derzeit drei moegliche Formen. Es wird von der Standardform ausgegangen."
 @export var alch_status = ["Normal", "Var 1", "Var 2"]
+signal alchemist_status
+signal alchemist_hp(hp: int)
 
-func _ready():
-	print("Spieler spawned, ", health_points, " hp.")
-
-
-func _process(_delta):
-	var vector_position = position
-	if vector_position.y > 1080:
-		health_points = 0
-	
-	if vector_position.x < 0:
-		vector_position.x = 0
-		position = vector_position
+func _init():
+	super._init("Spieler")
+	print("Spieler spawned, %s hp." % health_points)
 
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	if position.x < 0: position.x = 0
 		
-	if health_points == 0:
-		velocity = Vector2.ZERO
-	else:
-		move_and_slide()
+	if position.y > 1080:
+		_take_damage(3)
+		position.y = 1079
 		
+	if health_points <= 0: velocity = Vector2.ZERO
+	else: move_and_slide()
+		
+	if not is_on_floor(): velocity.y += gravity * delta
+	
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_velocity
 		animation.play("Jump")
@@ -40,4 +36,10 @@ func _physics_process(delta):
 
 
 func _take_damage(dmg: int):
-	print("Spieler bekam ", dmg, "Schaden. HP sind ", health_points, ".")
+	health_points -= dmg
+	print("Spieler bekam ", dmg, " Schaden. HP sind ", health_points, ".")
+	emit_signal("alchemist_hp")
+
+
+func change_alchemist(status: String):
+	emit_signal("alchemist_status", status)
