@@ -52,7 +52,17 @@ func _physics_process(delta):
 	else:
 		move_and_slide()
 
+
 func take_damage(dmg: int):
-	# TODO: Damage Animation einfuegen?
 	health_points -= dmg
+	animation.play("Defense")
+	
+	if health_points < 0:
+		health_points = 0
+	
 	print("Spieler bekam ", dmg, "Schaden. HP sind ", health_points, ".")
+	
+	
+func deal_damage():
+	# TODO: Charakter uebt Schaden aus.
+	animation.play("Attack")
