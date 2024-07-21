@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=15 format=3 uid="uid://chcj7rlau5rj2"]
 
 [ext_resource type="PackedScene" uid="uid://dd01ycutk241" path="res://GUI/GUI.tscn" id="1_106b6"]
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_ygglc"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d031nwvl3b77l" path="res://Scenes/Player.tscn" id="3_su7d1"]
 [ext_resource type="Script" path="res://Script/Camera.gd" id="3_v5rpc"]
 [ext_resource type="Texture2D" uid="uid://bwdn8tsnx8so5" path="res://Assets/missing3.png" id="4_u1vux"]
+[ext_resource type="Script" path="res://Script/Classes/Terrain/NeutralBlock.gd" id="5_bkupr"]
 [ext_resource type="PackedScene" uid="uid://djsy8hriunmuw" path="res://Scenes/GameOver.tscn" id="6_3uguh"]
+[ext_resource type="Script" path="res://Script/Classes/Terrain/DMGBlock.gd" id="6_v78tt"]
 [ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="7_8cqol"]
 [ext_resource type="Script" path="res://Script/Classes/Monster.gd" id="9_uiqwv"]
 [ext_resource type="Texture2D" uid="uid://bgqiudrg5s07x" path="res://icon.svg" id="9_ybvni"]
@@ -17,10 +19,8 @@ size = Vector2(192, 108)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yd7kp"]
 size = Vector2(64, 64)
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("game_over", "player")]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_ygglc")
-game_over = NodePath("Gameplay/CanvasLayer/GameOver")
-player = NodePath("Gameplay/Player")
 
 [node name="Gameplay" type="Node" parent="."]
 
@@ -29,11 +29,12 @@ position = Vector2(88, -394)
 
 [node name="Camera" type="Camera2D" parent="Gameplay/Player" node_paths=PackedStringArray("player")]
 script = ExtResource("3_v5rpc")
-start_offset = 600.0
+start_offset = 700.0
 player = NodePath("..")
 
 [node name="SampleTile" parent="Gameplay" instance=ExtResource("2_k8w5k")]
 position = Vector2(123, -108)
+script = ExtResource("5_bkupr")
 
 [node name="SampleTile4" parent="Gameplay" instance=ExtResource("2_k8w5k")]
 position = Vector2(-28, -220)
@@ -59,25 +60,31 @@ position = Vector2(228, 2)
 
 [node name="DamageTile" type="StaticBody2D" parent="Gameplay"]
 position = Vector2(606, -209)
+script = ExtResource("6_v78tt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/DamageTile"]
 texture = ExtResource("4_u1vux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/DamageTile"]
+visible = false
+shape = SubResource("RectangleShape2D_q32w2")
+
+[node name="Area2D" type="Area2D" parent="Gameplay/DamageTile"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Gameplay/DamageTile/Area2D"]
 shape = SubResource("RectangleShape2D_q32w2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Gameplay"]
 
-[node name="GUI" parent="Gameplay/CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("1_106b6")]
-offset_left = 2.0
-offset_top = -1.0
-offset_right = 1922.0
-offset_bottom = 1079.0
-player = NodePath("../../Player")
+[node name="GUI" parent="Gameplay/CanvasLayer" instance=ExtResource("1_106b6")]
+anchors_preset = -1
+anchor_bottom = 0.1
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
-[node name="GameOver" parent="Gameplay/CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("6_3uguh")]
+[node name="GameOver" parent="Gameplay/CanvasLayer" instance=ExtResource("6_3uguh")]
+visible = false
 z_as_relative = false
-player = NodePath("../../Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Gameplay/CanvasLayer"]
 
@@ -101,5 +108,5 @@ texture = ExtResource("9_ybvni")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Monster"]
 shape = SubResource("RectangleShape2D_yd7kp")
 
-[connection signal="game_over_signal" from="." to="Gameplay/CanvasLayer/GameOver" method="game_over"]
+[connection signal="alchemist_died" from="Gameplay/Player" to="Gameplay/CanvasLayer/GameOver" method="game_over"]
 [connection signal="alchemist_hp" from="Gameplay/Player" to="Gameplay/CanvasLayer/GUI" method="health_bar_manager" binds= [0]]

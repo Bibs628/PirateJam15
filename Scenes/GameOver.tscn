@@ -5,7 +5,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ftemi"]
 font_size = 300
 
-[node name="GameOver" type="Control" node_paths=PackedStringArray("button")]
+[node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hhr3o")
-button = NodePath("GameOver/Button")
 
 [node name="GameOver" type="VBoxContainer" parent="."]
 z_index = 1
@@ -35,3 +34,5 @@ vertical_alignment = 1
 [node name="Button" type="Button" parent="GameOver"]
 layout_mode = 2
 text = "Play Again?"
+
+[connection signal="pressed" from="GameOver/Button" to="." method="_on_button_pressed"]

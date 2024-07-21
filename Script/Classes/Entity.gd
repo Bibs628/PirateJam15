@@ -1,5 +1,7 @@
 class_name Entity
 extends CharacterBody2D
+## Jedes lebende Objekt ist eine Entity.
+## Dazu zaehlen Spieler, NPCs, und Mobs.
 
 @export_group("Eigenschaften")
 @export var speed: int = 300
@@ -25,4 +27,5 @@ func _take_damage(dmg: int):
 	animation.play("Defense")
 	emit_signal("Defense")
 	
-	if health_points < 0: health_points = 0
+	if health_points < 0: 
+		health_points = 0

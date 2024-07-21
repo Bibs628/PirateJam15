@@ -12,3 +12,8 @@ func movement_logic():
 func combat_logic():
 	#TODO: KI
 	pass
+	
+
+func aware_of_player():
+	#TODO: KI
+	pass

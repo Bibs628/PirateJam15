@@ -1,57 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd01ycutk241"]
+[gd_scene load_steps=3 format=3 uid="uid://dd01ycutk241"]
 
 [ext_resource type="Texture2D" uid="uid://ctpau8qq40blg" path="res://Assets/missing.png" id="1_qkac6"]
 [ext_resource type="Script" path="res://Script/GUI.gd" id="1_yb6op"]
 
-[sub_resource type="GDScript" id="GDScript_srsoo"]
-script/source = "extends RichTextLabel
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-"
-
-[node name="GUI" type="Control" node_paths=PackedStringArray("panel")]
+[node name="GUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -972.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yb6op")
-panel = NodePath("Container/TopPanel")
 
-[node name="Container" type="Control" parent="."]
-layout_mode = 1
-anchor_left = -0.000520833
-anchor_right = 1.0
-offset_bottom = 108.0
-grow_horizontal = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="TopPanel" type="Panel" parent="Container"]
+[node name="TopPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UI" type="HBoxContainer" parent="Container/TopPanel"]
+[node name="UI" type="HBoxContainer" parent="TopPanel"]
 custom_minimum_size = Vector2(240, 23)
 layout_mode = 2
 offset_right = 1932.0
 offset_bottom = 108.0
 size_flags_vertical = 3
 
-[node name="AlchStatus" type="RichTextLabel" parent="Container/TopPanel/UI"]
+[node name="AlchStatus" type="RichTextLabel" parent="TopPanel/UI"]
 custom_minimum_size = Vector2(240, 23)
 layout_mode = 2
 bbcode_enabled = true
@@ -59,7 +36,7 @@ text = "[center]- ALCHEMY -[/center]"
 tab_size = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Container/TopPanel/UI/AlchStatus"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/UI/AlchStatus"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 0
 offset_top = 23.0
@@ -67,7 +44,7 @@ offset_right = 240.0
 offset_bottom = 85.0
 alignment = 1
 
-[node name="State" type="TextureRect" parent="Container/TopPanel/UI/AlchStatus/HBoxContainer"]
+[node name="State" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -75,7 +52,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="State2" type="TextureRect" parent="Container/TopPanel/UI/AlchStatus/HBoxContainer"]
+[node name="State2" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -83,7 +60,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="State3" type="TextureRect" parent="Container/TopPanel/UI/AlchStatus/HBoxContainer"]
+[node name="State3" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -91,16 +68,15 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AlchHP" type="RichTextLabel" parent="Container/TopPanel/UI"]
+[node name="AlchHP" type="RichTextLabel" parent="TopPanel/UI"]
 custom_minimum_size = Vector2(240, 23)
 layout_mode = 2
 bbcode_enabled = true
 text = "[center]- LIFE -[/center]"
 tab_size = 5
-script = SubResource("GDScript_srsoo")
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Container/TopPanel/UI/AlchHP"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/UI/AlchHP"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 0
 offset_top = 23.0
@@ -108,7 +84,7 @@ offset_right = 240.0
 offset_bottom = 85.0
 alignment = 1
 
-[node name="1HP" type="TextureRect" parent="Container/TopPanel/UI/AlchHP/HBoxContainer"]
+[node name="1HP" type="TextureRect" parent="TopPanel/UI/AlchHP/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -116,7 +92,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="2HP" type="TextureRect" parent="Container/TopPanel/UI/AlchHP/HBoxContainer"]
+[node name="2HP" type="TextureRect" parent="TopPanel/UI/AlchHP/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -124,7 +100,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="3HP" type="TextureRect" parent="Container/TopPanel/UI/AlchHP/HBoxContainer"]
+[node name="3HP" type="TextureRect" parent="TopPanel/UI/AlchHP/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -132,7 +108,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Placeholder" type="RichTextLabel" parent="Container/TopPanel/UI"]
+[node name="Placeholder" type="RichTextLabel" parent="TopPanel/UI"]
 custom_minimum_size = Vector2(1188, 23)
 layout_mode = 2
 bbcode_enabled = true
@@ -140,7 +116,7 @@ text = "[center]- PLACEHOLDER -[/center]"
 tab_size = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="MobHP" type="RichTextLabel" parent="Container/TopPanel/UI"]
+[node name="MobHP" type="RichTextLabel" parent="TopPanel/UI"]
 custom_minimum_size = Vector2(240, 23)
 layout_mode = 2
 bbcode_enabled = true
@@ -148,7 +124,7 @@ text = "[center]- MONSTER HP -[/center]"
 tab_size = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Container/TopPanel/UI/MobHP"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/UI/MobHP"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 0
 offset_top = 23.0
@@ -156,7 +132,7 @@ offset_right = 240.0
 offset_bottom = 85.0
 alignment = 1
 
-[node name="State" type="TextureRect" parent="Container/TopPanel/UI/MobHP/HBoxContainer"]
+[node name="State" type="TextureRect" parent="TopPanel/UI/MobHP/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -164,7 +140,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="State2" type="TextureRect" parent="Container/TopPanel/UI/MobHP/HBoxContainer"]
+[node name="State2" type="TextureRect" parent="TopPanel/UI/MobHP/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -172,7 +148,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="State3" type="TextureRect" parent="Container/TopPanel/UI/MobHP/HBoxContainer"]
+[node name="State3" type="TextureRect" parent="TopPanel/UI/MobHP/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0

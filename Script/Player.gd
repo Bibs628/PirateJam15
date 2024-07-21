@@ -1,9 +1,15 @@
 extends Entity
+# Script fuer den Alchemisten.
 
-# "Alchemistischer State; derzeit drei moegliche Formen. Es wird von der Standardform ausgegangen."
-@export var alch_status = ["Normal", "Var 1", "Var 2"]
 signal alchemist_status
 signal alchemist_hp(hp: int)
+signal alchemist_died
+
+enum alch_status {
+		NORMAL, 
+		VAR_1, 
+		VAR_2
+}
 
 func _init():
 	super._init("Spieler")
@@ -39,6 +45,9 @@ func _take_damage(dmg: int):
 	health_points -= dmg
 	print("Spieler bekam ", dmg, " Schaden. HP sind ", health_points, ".")
 	emit_signal("alchemist_hp")
+	if health_points <= 0:
+		visible = false
+		emit_signal("alchemist_died")
 
 
 func change_alchemist(status: String):
