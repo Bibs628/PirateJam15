@@ -1,9 +1,14 @@
 extends Entity
+# Script fuer den Alchemisten.
 
-# "Alchemistischer State; derzeit drei moegliche Formen. Es wird von der Standardform ausgegangen."
-@export var alch_status = ["Normal", "Var 1", "Var 2"]
 signal alchemist_status
 signal alchemist_hp(hp: int)
+
+enum alch_status {
+		NORMAL, 
+		VAR_1, 
+		VAR_2
+}
 
 func _init():
 	super._init("Spieler")

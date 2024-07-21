@@ -21,5 +21,5 @@ func alchemist_status_manager(status):
 		alch_status[i].visible = i == status
 
 
-func get_container(container: String):
+func get_container(container: String) -> Array:
 	return panel.get_node("UI").get_node(container).get_node("HBoxContainer").get_children()

@@ -2,8 +2,8 @@ extends Camera2D
 
 @export var start_offset: float = 800
 @export var center_speed: float = 1
-var last_x:float
 @export var player: CharacterBody2D
+var last_x:float
 
 func _ready():
 	position.x = player.position.x + start_offset
