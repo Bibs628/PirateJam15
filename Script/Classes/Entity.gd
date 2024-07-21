@@ -10,8 +10,8 @@ extends CharacterBody2D
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _init(name: String = "Entity"):
-	print("Entity \"%s\" spawned." % name)
+func _init(entity_name: String = "Entity"):
+	print("Entity \"%s\" spawned." % entity_name)
 
 
 func _deal_damage():
