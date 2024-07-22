@@ -44,7 +44,7 @@ offset_right = 240.0
 offset_bottom = 85.0
 alignment = 1
 
-[node name="State" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
+[node name="Fire" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -52,7 +52,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="State2" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
+[node name="Plant" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -60,7 +60,7 @@ texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="State3" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
+[node name="Wind" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0

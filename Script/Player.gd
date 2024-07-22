@@ -1,14 +1,17 @@
 extends Entity
 # Script fuer den Alchemisten.
 
+@export var element = alch_status
+
 signal alchemist_status
 signal alchemist_hp(hp: int)
 signal alchemist_died
 
 enum alch_status {
-		NORMAL, 
-		VAR_1, 
-		VAR_2
+		FIRE, 
+		PLANT, 
+		WIND,
+		EARTH
 }
 
 func _init():
