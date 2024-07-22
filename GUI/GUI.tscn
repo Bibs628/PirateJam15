@@ -29,7 +29,7 @@ offset_bottom = 108.0
 size_flags_vertical = 3
 
 [node name="AlchStatus" type="RichTextLabel" parent="TopPanel/UI"]
-custom_minimum_size = Vector2(240, 23)
+custom_minimum_size = Vector2(302, 23)
 layout_mode = 2
 bbcode_enabled = true
 text = "[center]- ALCHEMY -[/center]"
@@ -40,11 +40,19 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 0
 offset_top = 23.0
-offset_right = 240.0
+offset_right = 302.0
 offset_bottom = 85.0
 alignment = 1
 
 [node name="Fire" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_qkac6")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Fire2" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -109,7 +117,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Placeholder" type="RichTextLabel" parent="TopPanel/UI"]
-custom_minimum_size = Vector2(1188, 23)
+custom_minimum_size = Vector2(1126, 23)
 layout_mode = 2
 bbcode_enabled = true
 text = "[center]- PLACEHOLDER -[/center]"
