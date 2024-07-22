@@ -32,12 +32,12 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(302, 23)
 layout_mode = 2
 bbcode_enabled = true
-text = "[center]- ALCHEMY -[/center]"
+text = "[center]- ELEMENT -[/center]"
 tab_size = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/UI/AlchStatus"]
-custom_minimum_size = Vector2(62, 62)
+custom_minimum_size = Vector2(46.5, 46.5)
 layout_mode = 0
 offset_top = 23.0
 offset_right = 302.0
@@ -45,33 +45,37 @@ offset_bottom = 85.0
 alignment = 1
 
 [node name="Fire" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
-custom_minimum_size = Vector2(62, 62)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("1_qkac6")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Fire2" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
-custom_minimum_size = Vector2(62, 62)
-layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Plant" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
-custom_minimum_size = Vector2(62, 62)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Wind" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
-custom_minimum_size = Vector2(62, 62)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_qkac6")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Earth" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("1_qkac6")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true

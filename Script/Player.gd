@@ -13,7 +13,7 @@ extends Entity
 	element.FIRE: -400,
 	element.PLANT: -400,
 	element.WIND: -400,
-	element.EARTH: -4000
+	element.EARTH: -1000
 }
 
 signal alchemist_status
@@ -80,6 +80,6 @@ func _take_damage(dmg: int):
 func change_element(status: int):
 	emit_signal("alchemist_status", status)
 	current_element = status
-	print("Element ist nun %s." % current_element)
 	speed = element_speed[status]
 	jump_velocity = element_jump_velocity[status]
+	print("Element ist nun %s." % current_element)

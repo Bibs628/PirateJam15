@@ -114,3 +114,4 @@ shape = SubResource("RectangleShape2D_yd7kp")
 
 [connection signal="alchemist_died" from="Gameplay/Player" to="Gameplay/CanvasLayer/GameOver" method="game_over"]
 [connection signal="alchemist_hp" from="Gameplay/Player" to="Gameplay/CanvasLayer/GUI" method="health_bar_manager" binds= [0]]
+[connection signal="alchemist_status" from="Gameplay/Player" to="Gameplay/CanvasLayer/GUI" method="alchemist_status_manager"]

@@ -1,8 +1,7 @@
 extends Control
 
 func _ready():
-	var alch_status = get_container("AlchStatus")
-	#alch_status.
+	alchemist_status_manager(0)
 
 
 func health_bar_manager(health_points):
@@ -11,10 +10,12 @@ func health_bar_manager(health_points):
 		alch_hp[i].visible = i < health_points
 
 
-func alchemist_status_manager(status):
+func alchemist_status_manager(status: int):
 	var alch_status = get_container("AlchStatus")
-	#for i in range(alch_status.size()):
-	#	alch_status[i].visible = i == status
+	for i in range(alch_status.size()):
+		alch_status[i].custom_minimum_size = Vector2(62, 62) if i == status \
+		else Vector2(40, 40)
+
 
 func monster_bar_manager(health_points):
 	var monster_hp = get_container("MobHP")
