@@ -1,4 +1,6 @@
+class_name Monster
 extends Entity
+
 
 func _init():
 	super._init("Monster")

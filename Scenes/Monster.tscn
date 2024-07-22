@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://us0fcgwbrsum"]
+
+[ext_resource type="Script" path="res://Script/Classes/Monster.gd" id="1_knm4i"]
+[ext_resource type="Texture2D" uid="uid://bgqiudrg5s07x" path="res://icon.svg" id="2_itrjv"]
+[ext_resource type="Script" path="res://Script/Classes/Combat/Hurtbox.gd" id="3_ethaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yd7kp"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y0l0"]
+size = Vector2(88, 87)
+
+[node name="Monster" type="CharacterBody2D"]
+position = Vector2(802, -512)
+script = ExtResource("1_knm4i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_itrjv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yd7kp")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("3_ethaj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_2y0l0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

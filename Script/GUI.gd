@@ -1,6 +1,12 @@
 extends Control
 
 func _ready():
+	# Holt die Nodes von den anderen Szenen.
+	var game = get_tree().get_nodes_in_group("State_Listeners")
+	game[0].alchemist_hp.connect(health_bar_manager)
+	game[0].alchemist_status.connect(alchemist_status_manager)
+	
+	# Initialisiert als Status 0.
 	alchemist_status_manager(0)
 
 

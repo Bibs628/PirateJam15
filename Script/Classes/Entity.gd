@@ -7,7 +7,9 @@ extends CharacterBody2D
 @export var speed: int = 300
 @export var jump_velocity: int = -400
 @export var health_points: int = 3;
-@export var animation: AnimationPlayer
+
+#TODO: AnimationPlayer Node bauen
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 

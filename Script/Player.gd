@@ -1,3 +1,4 @@
+class_name Player
 extends Entity
 # Script fuer den Alchemisten.
 
@@ -26,6 +27,7 @@ enum element {
 		WIND,
 		EARTH
 }
+
 
 func _init():
 	print("Spieler spawned, %s hp." % [health_points])
@@ -71,15 +73,17 @@ func _physics_process(delta):
 func _take_damage(dmg: int):
 	health_points -= dmg
 	print("Spieler bekam ", dmg, " Schaden. HP sind ", health_points, ".")
-	emit_signal("alchemist_hp")
+	#emit_signal("alchemist_hp", dmg)
+	alchemist_hp.emit(health_points)
 	if health_points <= 0:
 		visible = false
 		emit_signal("alchemist_died")
 
 
 func change_element(status: int):
+	#TODO: Int zu enum casten
 	emit_signal("alchemist_status", status)
-	current_element = status
+	current_element = status as element
 	speed = element_speed[status]
 	jump_velocity = element_jump_velocity[status]
 	print("Element ist nun %s." % current_element)

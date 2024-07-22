@@ -1,117 +1,65 @@
-[gd_scene load_steps=16 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=10 format=3 uid="uid://chcj7rlau5rj2"]
 
-[ext_resource type="PackedScene" uid="uid://dd01ycutk241" path="res://GUI/GUI.tscn" id="1_106b6"]
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_ygglc"]
 [ext_resource type="PackedScene" uid="uid://ct13kr63b2rj1" path="res://Tile.tscn" id="2_k8w5k"]
 [ext_resource type="PackedScene" uid="uid://d031nwvl3b77l" path="res://Scenes/Player.tscn" id="3_su7d1"]
-[ext_resource type="Script" path="res://Script/Camera.gd" id="3_v5rpc"]
 [ext_resource type="Texture2D" uid="uid://bwdn8tsnx8so5" path="res://Assets/missing3.png" id="4_u1vux"]
 [ext_resource type="Script" path="res://Script/Classes/Terrain/NeutralBlock.gd" id="5_bkupr"]
-[ext_resource type="PackedScene" uid="uid://djsy8hriunmuw" path="res://Scenes/GameOver.tscn" id="6_3uguh"]
 [ext_resource type="Script" path="res://Script/Classes/Terrain/DMGBlock.gd" id="6_v78tt"]
-[ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="7_8cqol"]
-[ext_resource type="Script" path="res://Script/Classes/Monster.gd" id="9_uiqwv"]
-[ext_resource type="Texture2D" uid="uid://bgqiudrg5s07x" path="res://icon.svg" id="9_ybvni"]
+[ext_resource type="PackedScene" uid="uid://dspfbullo1enh" path="res://Scenes/GUI.tscn" id="7_hsxks"]
+[ext_resource type="PackedScene" uid="uid://us0fcgwbrsum" path="res://Scenes/Monster.tscn" id="11_keqii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q32w2"]
 size = Vector2(192, 108)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2jw8i"]
-blend_mode = 1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yd7kp"]
-size = Vector2(64, 64)
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ygglc")
 
-[node name="Gameplay" type="Node" parent="."]
-
-[node name="Player" parent="Gameplay" instance=ExtResource("3_su7d1")]
+[node name="Player" parent="." groups=["State_Listeners"] instance=ExtResource("3_su7d1")]
 position = Vector2(88, -194.021)
 jump_velocity = -200
 
-[node name="Camera" type="Camera2D" parent="Gameplay/Player" node_paths=PackedStringArray("player")]
-script = ExtResource("3_v5rpc")
-start_offset = 700.0
-player = NodePath("..")
-
-[node name="SampleTile" parent="Gameplay" instance=ExtResource("2_k8w5k")]
+[node name="SampleTile" parent="." instance=ExtResource("2_k8w5k")]
 position = Vector2(123, -108)
 script = ExtResource("5_bkupr")
 
-[node name="SampleTile4" parent="Gameplay" instance=ExtResource("2_k8w5k")]
+[node name="SampleTile4" parent="." instance=ExtResource("2_k8w5k")]
 position = Vector2(-28, -220)
 rotation = 1.5708
 
-[node name="SampleTile2" parent="Gameplay" instance=ExtResource("2_k8w5k")]
+[node name="SampleTile2" parent="." instance=ExtResource("2_k8w5k")]
 position = Vector2(526, -155)
 
-[node name="SampleTile3" parent="Gameplay" instance=ExtResource("2_k8w5k")]
+[node name="SampleTile3" parent="." instance=ExtResource("2_k8w5k")]
 position = Vector2(-134, -54)
 
-[node name="SampleTile3" parent="Gameplay/SampleTile3" instance=ExtResource("2_k8w5k")]
+[node name="SampleTile3" parent="SampleTile3" instance=ExtResource("2_k8w5k")]
 position = Vector2(970, -352)
 
-[node name="SampleTile3" parent="Gameplay/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
+[node name="SampleTile3" parent="SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
 position = Vector2(226, -76)
 
-[node name="SampleTile3" parent="Gameplay/SampleTile3/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
+[node name="SampleTile3" parent="SampleTile3/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
 position = Vector2(230, -48)
 
-[node name="SampleTile3" parent="Gameplay/SampleTile3/SampleTile3/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
+[node name="SampleTile3" parent="SampleTile3/SampleTile3/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
 position = Vector2(228, 2)
 
-[node name="DamageTile" type="StaticBody2D" parent="Gameplay"]
+[node name="DamageTile" type="StaticBody2D" parent="."]
 position = Vector2(1522, -297)
 script = ExtResource("6_v78tt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/DamageTile"]
+[node name="Sprite2D" type="Sprite2D" parent="DamageTile"]
 texture = ExtResource("4_u1vux")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/DamageTile"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageTile"]
 shape = SubResource("RectangleShape2D_q32w2")
 
-[node name="Area2D" type="Area2D" parent="Gameplay/DamageTile"]
+[node name="Area2D" type="Area2D" parent="DamageTile"]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Gameplay/DamageTile/Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageTile/Area2D"]
 shape = SubResource("RectangleShape2D_q32w2")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Gameplay"]
+[node name="Interface" parent="." groups=["State_Listeners"] instance=ExtResource("7_hsxks")]
 
-[node name="GUI" parent="Gameplay/CanvasLayer" instance=ExtResource("1_106b6")]
-anchors_preset = -1
-anchor_bottom = 0.1
-offset_bottom = 0.0
-metadata/_edit_use_anchors_ = true
-
-[node name="GameOver" parent="Gameplay/CanvasLayer" instance=ExtResource("6_3uguh")]
-visible = false
-z_as_relative = false
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Gameplay/CanvasLayer"]
-
-[node name="Skybox" type="Sprite2D" parent="Gameplay/CanvasLayer/ParallaxBackground"]
-visibility_layer = 512
-z_index = -3
-material = SubResource("CanvasItemMaterial_2jw8i")
-position = Vector2(960, 540)
-scale = Vector2(10, 10)
-texture = ExtResource("7_8cqol")
-
-[node name="Monster" type="CharacterBody2D" parent="Gameplay"]
-position = Vector2(1510, -408)
-script = ExtResource("9_uiqwv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Monster"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_ybvni")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gameplay/Monster"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Monster"]
-shape = SubResource("RectangleShape2D_yd7kp")
-
-[connection signal="alchemist_died" from="Gameplay/Player" to="Gameplay/CanvasLayer/GameOver" method="game_over"]
-[connection signal="alchemist_hp" from="Gameplay/Player" to="Gameplay/CanvasLayer/GUI" method="health_bar_manager" binds= [0]]
-[connection signal="alchemist_status" from="Gameplay/Player" to="Gameplay/CanvasLayer/GUI" method="alchemist_status_manager"]
+[node name="Monster" parent="." groups=["State_Listeners"] instance=ExtResource("11_keqii")]

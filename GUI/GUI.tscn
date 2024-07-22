@@ -29,7 +29,7 @@ offset_bottom = 108.0
 size_flags_vertical = 3
 
 [node name="AlchStatus" type="RichTextLabel" parent="TopPanel/UI"]
-custom_minimum_size = Vector2(302, 23)
+custom_minimum_size = Vector2(280, 23)
 layout_mode = 2
 bbcode_enabled = true
 text = "[center]- ELEMENT -[/center]"
@@ -45,7 +45,7 @@ offset_bottom = 85.0
 alignment = 1
 
 [node name="Fire" type="TextureRect" parent="TopPanel/UI/AlchStatus/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -127,6 +127,17 @@ bbcode_enabled = true
 text = "[center]- PLACEHOLDER -[/center]"
 tab_size = 5
 metadata/_edit_use_anchors_ = true
+
+[node name="Tutorial" type="Label" parent="TopPanel/UI/Placeholder"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 3.0
+offset_right = 255.0
+offset_bottom = 104.0
+text = "TUTORIAL
+WASD to Move
+Q/E to Switch Elements
+Space to Jump"
 
 [node name="MobHP" type="RichTextLabel" parent="TopPanel/UI"]
 custom_minimum_size = Vector2(240, 23)

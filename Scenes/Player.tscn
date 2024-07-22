@@ -1,8 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://d031nwvl3b77l"]
+[gd_scene load_steps=14 format=3 uid="uid://d031nwvl3b77l"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_fo4k8"]
 [ext_resource type="Texture2D" uid="uid://ctpau8qq40blg" path="res://Assets/missing.png" id="2_pvi7l"]
 [ext_resource type="Texture2D" uid="uid://us06bqktvyr5" path="res://Assets/missing2.png" id="3_u5fr4"]
+[ext_resource type="Script" path="res://Script/Classes/Combat/Hitbox.gd" id="3_v5uvk"]
+[ext_resource type="Script" path="res://Script/Camera.gd" id="5_wkb2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7oum"]
+size = Vector2(73, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1srcd"]
 size = Vector2(64, 64)
@@ -68,14 +73,20 @@ _data = {
 "Walk": SubResource("Animation_ndd02")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fo4k8")
-animation = NodePath("AnimationPlayer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(1.43051e-06, 0)
 scale = Vector2(0.333333, 0.592593)
 texture = ExtResource("3_u5fr4")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_v5uvk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(68.5, 1)
+shape = SubResource("RectangleShape2D_u7oum")
 
 [node name="CollisionHandler" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1srcd")
@@ -87,3 +98,6 @@ libraries = {
 }
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("5_wkb2w")

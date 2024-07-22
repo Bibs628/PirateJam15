@@ -12,6 +12,7 @@ enum Terrain {
 	DMG_MOVING
 }
 
+
 func _init(terrain_name: String = "Block"):
 	print("Terrain \"%s\" spawned." % terrain_name)
 
