@@ -8,6 +8,14 @@ func _ready():
 	
 	# Initialisiert als Status 0.
 	alchemist_status_manager(0)
+	$Pause.visible = false
+
+
+## Pausenmenu.
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("Menu"):
+		$Pause.visible = !$Pause.visible
+		Engine.time_scale = 0 if Engine.time_scale == 1 else 1
 
 
 func health_bar_manager(health_points):

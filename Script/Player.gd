@@ -20,6 +20,7 @@ extends Entity
 signal alchemist_status
 signal alchemist_hp(hp: int)
 signal alchemist_died
+signal menu_trigger
 
 enum element {
 		FIRE, 
@@ -33,7 +34,7 @@ func _init():
 	print("Spieler spawned, %s hp." % [health_points])
 
 
-func _process(_delta):
+func _input(event):
 	if Input.is_action_just_pressed("Element Left"):
 		change_element((current_element - 1 + element.size()) % element.size())
 		
