@@ -28,6 +28,7 @@ func _take_damage(dmg: int):
 	health_points -= dmg
 	animation.play("Defense")
 	emit_signal("Defense")
+	print("DONE")
 	
 	if health_points < 0: 
 		health_points = 0

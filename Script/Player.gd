@@ -39,6 +39,11 @@ func _process(_delta):
 		
 	if Input.is_action_just_pressed("Element Right"):
 		change_element((current_element + 1 + element.size()) % element.size())
+	
+	if Input.is_action_just_pressed("Attack"):
+		$ContextWeapon.visible = true
+		$ContextWeapon.get_node("CollisionShape2D").disabled = false
+		$ContextWeapon.get_node("Timer").start()
 
 
 func _physics_process(delta):
@@ -73,16 +78,14 @@ func _physics_process(delta):
 func _take_damage(dmg: int):
 	health_points -= dmg
 	print("Spieler bekam ", dmg, " Schaden. HP sind ", health_points, ".")
-	#emit_signal("alchemist_hp", dmg)
 	alchemist_hp.emit(health_points)
 	if health_points <= 0:
 		visible = false
-		emit_signal("alchemist_died")
+		alchemist_died.emit()
 
 
 func change_element(status: int):
-	#TODO: Int zu enum casten
-	emit_signal("alchemist_status", status)
+	alchemist_status.emit(status)
 	current_element = status as element
 	speed = element_speed[status]
 	jump_velocity = element_jump_velocity[status]

@@ -1,13 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://d031nwvl3b77l"]
+[gd_scene load_steps=17 format=3 uid="uid://d031nwvl3b77l"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_fo4k8"]
 [ext_resource type="Texture2D" uid="uid://ctpau8qq40blg" path="res://Assets/missing.png" id="2_pvi7l"]
 [ext_resource type="Texture2D" uid="uid://us06bqktvyr5" path="res://Assets/missing2.png" id="3_u5fr4"]
 [ext_resource type="Script" path="res://Script/Classes/Combat/Hitbox.gd" id="3_v5uvk"]
+[ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="4_fxvb6"]
 [ext_resource type="Script" path="res://Script/Camera.gd" id="5_wkb2w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7oum"]
-size = Vector2(73, 20)
+[sub_resource type="Animation" id="Animation_nx5vi"]
+resource_name = "Attack"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msl72"]
+_data = {
+"Attack": SubResource("Animation_nx5vi")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be474"]
+size = Vector2(208, 135)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1srcd"]
 size = Vector2(64, 64)
@@ -81,12 +90,32 @@ position = Vector2(1.43051e-06, 0)
 scale = Vector2(0.333333, 0.592593)
 texture = ExtResource("3_u5fr4")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="ContextWeapon" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("3_v5uvk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(68.5, 1)
-shape = SubResource("RectangleShape2D_u7oum")
+[node name="Sprite2D" type="Sprite2D" parent="ContextWeapon"]
+position = Vector2(80, 0)
+scale = Vector2(0.5, 0.592593)
+texture = ExtResource("4_fxvb6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContextWeapon"]
+libraries = {
+"": SubResource("AnimationLibrary_msl72")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContextWeapon"]
+visible = false
+position = Vector2(84, 0)
+scale = Vector2(0.5, 0.592593)
+shape = SubResource("RectangleShape2D_be474")
+disabled = true
+
+[node name="Timer" type="Timer" parent="ContextWeapon"]
+process_callback = 0
+one_shot = true
 
 [node name="CollisionHandler" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1srcd")
@@ -101,3 +130,6 @@ libraries = {
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("5_wkb2w")
+
+[connection signal="area_entered" from="ContextWeapon" to="ContextWeapon" method="is_in_area"]
+[connection signal="timeout" from="ContextWeapon/Timer" to="ContextWeapon" method="timer_out"]

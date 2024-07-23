@@ -130,13 +130,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="Label" parent="TopPanel/UI/Placeholder"]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 3.0
-offset_right = 255.0
-offset_bottom = 104.0
-text = "TUTORIAL
-WASD to Move
+offset_left = 148.0
+offset_top = 4.0
+offset_right = 327.0
+offset_bottom = 105.0
+text = "WASD to Move
 Q/E to Switch Elements
+LMB to Attack
 Space to Jump"
 
 [node name="MobHP" type="RichTextLabel" parent="TopPanel/UI"]

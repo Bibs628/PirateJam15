@@ -4,6 +4,12 @@ extends Area2D
 @export var damage = 1
 
 
-func _init():
-	collision_layer = 2
-	collision_mask = 0
+func is_in_area(area):
+	if visible:
+		print("Monster attacked!")
+
+
+func timer_out():
+	visible = false
+	get_node("CollisionShape2D").disabled = true
+	$Timer.stop()
