@@ -4,7 +4,7 @@ extends Area2D
 @export var damage = 1
 
 
-func is_in_area(area):
+func is_in_area(_area):
 	if visible:
 		print("Monster attacked!")
 

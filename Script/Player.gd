@@ -34,7 +34,7 @@ func _init():
 	print("Spieler spawned, %s hp." % [health_points])
 
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("Element Left"):
 		change_element((current_element - 1 + element.size()) % element.size())
 		
