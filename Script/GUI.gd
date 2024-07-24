@@ -12,7 +12,7 @@ func _ready():
 
 
 ## Pausenmenu.
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("Menu"):
 		$Pause.visible = !$Pause.visible
 		Engine.time_scale = 0 if Engine.time_scale == 1 else 1

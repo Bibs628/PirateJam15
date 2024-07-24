@@ -61,3 +61,4 @@ shape = SubResource("RectangleShape2D_q32w2")
 [node name="Interface" parent="." groups=["State_Listeners"] instance=ExtResource("7_hsxks")]
 
 [node name="Monster" parent="." groups=["Player_Listener"] instance=ExtResource("11_keqii")]
+position = Vector2(1523, -667)
