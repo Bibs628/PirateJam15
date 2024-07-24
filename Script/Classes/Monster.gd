@@ -9,11 +9,8 @@ func _init():
 	super._init("Monster")
 	
 
-#func _process(_delta):
-	#print($Awareness.CollisionShape2D.get_shape_owners())
-
-
-func _physics_process(_delta):
+func _physics_process(delta):
+	super._physics_process(delta)
 	if aware_of_player:
 		position += (player.position - position) / speed
 

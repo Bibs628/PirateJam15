@@ -48,20 +48,10 @@ func _input(_event):
 
 
 func _physics_process(delta):
+	super._physics_process(delta) 
+
 	if position.x < 0: 
 		position.x = 0
-		
-	if position.y > 1080:
-		_take_damage(3)
-		position.y = 1079
-		
-	if health_points <= 0: 
-		velocity = Vector2.ZERO
-	else: 
-		move_and_slide()
-		
-	if not is_on_floor(): 
-		velocity.y += gravity * delta
 	
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_velocity
