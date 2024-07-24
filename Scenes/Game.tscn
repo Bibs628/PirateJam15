@@ -62,3 +62,6 @@ shape = SubResource("RectangleShape2D_q32w2")
 
 [node name="Monster" parent="." groups=["Player_Listener"] instance=ExtResource("11_keqii")]
 position = Vector2(1523, -667)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
