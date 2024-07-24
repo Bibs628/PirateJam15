@@ -25,6 +25,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Game Jam"
 
+[gui]
+
+theme/custom_font="res://Assets/GUI/I-pixel-u.ttf"
+
 [input]
 
 Up={

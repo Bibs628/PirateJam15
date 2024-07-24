@@ -4,6 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_ftemi"]
 font_size = 300
+font_color = Color(1, 0, 0, 1)
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -33,6 +34,6 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="GameOver"]
 layout_mode = 2
-text = "Play Again?"
+text = "PLAY AGAIN?"
 
 [connection signal="pressed" from="GameOver/Button" to="." method="on_button_pressed"]

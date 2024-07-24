@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd01ycutk241"]
+[gd_scene load_steps=6 format=3 uid="uid://dd01ycutk241"]
 
 [ext_resource type="Texture2D" uid="uid://ctpau8qq40blg" path="res://Assets/missing.png" id="1_qkac6"]
 [ext_resource type="Script" path="res://Script/GUI.gd" id="1_yb6op"]
+[ext_resource type="Texture2D" uid="uid://b56kubwa3qgwr" path="res://Assets/GUI/HP_Heart.png" id="2_i5s3o"]
+[ext_resource type="Texture2D" uid="uid://car77r3h71etl" path="res://Assets/GUI/Flame.png" id="2_j18ua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_to63x"]
 font_size = 150
@@ -53,7 +55,7 @@ custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_qkac6")
+texture = ExtResource("2_j18ua")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -104,7 +106,7 @@ alignment = 1
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_qkac6")
+texture = ExtResource("2_i5s3o")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -112,7 +114,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_qkac6")
+texture = ExtResource("2_i5s3o")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -120,7 +122,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_qkac6")
+texture = ExtResource("2_i5s3o")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -138,10 +140,11 @@ offset_left = 148.0
 offset_top = 4.0
 offset_right = 327.0
 offset_bottom = 105.0
-text = "WASD to Move
+text = "WASD to Move | ESC to Pause
 Q/E to Switch Elements
 LMB to Attack
 Space to Jump"
+uppercase = true
 
 [node name="MobHP" type="RichTextLabel" parent="TopPanel/UI"]
 custom_minimum_size = Vector2(240, 23)
