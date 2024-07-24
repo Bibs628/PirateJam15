@@ -13,8 +13,8 @@ extends Entity
 @export var element_jump_velocity = {
 	element.FIRE: -400,
 	element.PLANT: -400,
-	element.WIND: -400,
-	element.EARTH: -1000
+	element.WIND: -600,
+	element.EARTH: -200
 }
 
 signal alchemist_status
