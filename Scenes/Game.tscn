@@ -17,15 +17,33 @@ texture = ExtResource("8_lese6")
 separation = Vector2i(1, 1)
 use_texture_padding = false
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_f852u"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 17
 sources/0 = SubResource("TileSetAtlasSource_l8744")
 
 [node name="Game" type="Node2D"]
@@ -83,5 +101,7 @@ position = Vector2(1523, -667)
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_f852u")
+collision_visibility_mode = 1
 format = 2
-layer_0/tile_data = PackedInt32Array(-327679, 65536, 0, -327678, 196608, 0, -327677, 0, 0, -327676, 196608, 0, -327675, 0, 0, -327674, 131072, 0, -262143, 0, 1, -262138, 65536, 1, -262142, 196608, 1, -262141, 131072, 1, -262140, 196608, 1, -262139, 131072, 1)
+layer_0/name = "Collision"
+layer_0/tile_data = PackedInt32Array(-327679, 65536, 0, -327678, 196608, 0, -327677, 0, 0, -327676, 196608, 0, -327675, 0, 0, -327674, 131072, 0, -262143, 0, 1, -262138, 65536, 1, -262142, 196608, 1, -262141, 131072, 1, -262140, 196608, 1, -262139, 131072, 1, -327673, 0, 0, -262137, 0, 1, -327672, 65536, 0, -262136, 65536, 1, -327671, 131072, 0, -262135, 131072, 1, -327670, 196608, 0, -262134, 196608, 1, -458743, 0, 0, -393207, 0, 1, -458742, 65536, 0, -393206, 65536, 1, -458741, 131072, 0, -393205, 131072, 1, -458740, 196608, 0, -393204, 196608, 1)

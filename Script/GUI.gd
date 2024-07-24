@@ -1,5 +1,7 @@
 extends Control
 
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 func _ready():
 	# Holt die Nodes von den anderen Szenen.
 	var game = get_tree().get_nodes_in_group("State_Listeners")
@@ -16,6 +18,7 @@ func _unhandled_input(_event):
 	if Input.is_action_just_pressed("Menu"):
 		$Pause.visible = !$Pause.visible
 		Engine.time_scale = 0 if Engine.time_scale == 1 else 1
+		audio.play()
 
 
 func health_bar_manager(health_points):
@@ -29,6 +32,7 @@ func alchemist_status_manager(status: int):
 	for i in range(alch_status.size()):
 		alch_status[i].custom_minimum_size = Vector2(62, 62) if i == status \
 		else Vector2(40, 40)
+		audio.play()
 
 
 func monster_bar_manager(health_points):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd01ycutk241"]
+[gd_scene load_steps=10 format=3 uid="uid://dd01ycutk241"]
 
 [ext_resource type="Script" path="res://Script/GUI.gd" id="1_yb6op"]
 [ext_resource type="Texture2D" uid="uid://b56kubwa3qgwr" path="res://Assets/GUI/HP_Heart.png" id="2_i5s3o"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://g0g5dqvbu768" path="res://Assets/GUI/Wind.png" id="4_nbltd"]
 [ext_resource type="Texture2D" uid="uid://12inb3j7hfux" path="res://Assets/GUI/Stein.png" id="5_1ftdd"]
 [ext_resource type="Texture2D" uid="uid://desb2o4eujtt7" path="res://Assets/GUI/HP_EnemyHeart.png" id="7_rwl65"]
+[ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="8_w5xg1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_to63x"]
 font_size = 150
@@ -197,3 +198,6 @@ offset_bottom = 216.0
 text = "- GAME PAUSED -"
 label_settings = SubResource("LabelSettings_to63x")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_w5xg1")

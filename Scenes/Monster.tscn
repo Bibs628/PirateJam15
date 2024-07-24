@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://us0fcgwbrsum"]
+[gd_scene load_steps=9 format=3 uid="uid://us0fcgwbrsum"]
 
 [ext_resource type="Script" path="res://Script/Classes/Monster.gd" id="1_knm4i"]
 [ext_resource type="Texture2D" uid="uid://bgqiudrg5s07x" path="res://icon.svg" id="2_itrjv"]
 [ext_resource type="Script" path="res://Script/Classes/Combat/Hurtbox.gd" id="3_ethaj"]
+[ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="4_4g7cb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7fh6"]
 
@@ -45,5 +46,9 @@ shape = SubResource("RectangleShape2D_2y0l0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Awareness"]
 position = Vector2(0, 1.5)
 shape = SubResource("CircleShape2D_sfsys")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4g7cb")
+bus = &"FX"
 
 [connection signal="body_entered" from="Awareness" to="." method="_on_awareness_body_entered"]

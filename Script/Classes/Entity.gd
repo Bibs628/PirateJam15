@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var health_points: int = 3;
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 

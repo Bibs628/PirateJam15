@@ -56,6 +56,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_velocity
 		animation.play("Jump")
+		$AudioStreamPlayer2D.play()
 
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
