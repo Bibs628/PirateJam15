@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=12 format=3 uid="uid://chcj7rlau5rj2"]
 
 [ext_resource type="PackedScene" uid="uid://gf5gpao83uvo" path="res://Tile.tscn" id="2_k8w5k"]
 [ext_resource type="PackedScene" uid="uid://d031nwvl3b77l" path="res://Scenes/Player.tscn" id="3_su7d1"]
@@ -6,10 +6,27 @@
 [ext_resource type="Script" path="res://Script/Classes/Terrain/NeutralBlock.gd" id="5_bkupr"]
 [ext_resource type="Script" path="res://Script/Classes/Terrain/DMGBlock.gd" id="6_v78tt"]
 [ext_resource type="PackedScene" uid="uid://dspfbullo1enh" path="res://Scenes/GUI.tscn" id="7_hsxks"]
+[ext_resource type="Texture2D" uid="uid://b2epg2a2omfts" path="res://Assets/GUI/Tilemap_Voreground.png" id="8_lese6"]
 [ext_resource type="PackedScene" uid="uid://us0fcgwbrsum" path="res://Scenes/Monster.tscn" id="11_keqii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q32w2"]
 size = Vector2(192, 108)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8744"]
+texture = ExtResource("8_lese6")
+separation = Vector2i(1, 1)
+use_texture_padding = false
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f852u"]
+sources/0 = SubResource("TileSetAtlasSource_l8744")
 
 [node name="Game" type="Node2D"]
 
@@ -18,7 +35,7 @@ position = Vector2(88, -194.021)
 jump_velocity = -200
 
 [node name="SampleTile" parent="." instance=ExtResource("2_k8w5k")]
-position = Vector2(123, -108)
+position = Vector2(128, -106)
 script = ExtResource("5_bkupr")
 
 [node name="SampleTile4" parent="." instance=ExtResource("2_k8w5k")]
@@ -64,4 +81,7 @@ shape = SubResource("RectangleShape2D_q32w2")
 position = Vector2(1523, -667)
 
 [node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_f852u")
 format = 2
+layer_0/tile_data = PackedInt32Array(-327679, 65536, 0, -327678, 196608, 0, -327677, 0, 0, -327676, 196608, 0, -327675, 0, 0, -327674, 131072, 0, -262143, 0, 1, -262138, 65536, 1, -262142, 196608, 1, -262141, 131072, 1, -262140, 196608, 1, -262139, 131072, 1)
