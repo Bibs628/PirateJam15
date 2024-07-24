@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dspfbullo1enh"]
+[gd_scene load_steps=6 format=3 uid="uid://dspfbullo1enh"]
 
 [ext_resource type="PackedScene" uid="uid://dd01ycutk241" path="res://GUI/GUI.tscn" id="1_g21k8"]
 [ext_resource type="PackedScene" uid="uid://djsy8hriunmuw" path="res://Scenes/GameOver.tscn" id="2_moxxb"]
 [ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="3_u2bf1"]
+[ext_resource type="Texture2D" uid="uid://us06bqktvyr5" path="res://Assets/missing2.png" id="4_812b3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2jw8i"]
 blend_mode = 1
@@ -28,3 +29,17 @@ material = SubResource("CanvasItemMaterial_2jw8i")
 position = Vector2(960, 540)
 scale = Vector2(10, 10)
 texture = ExtResource("3_u2bf1")
+
+[node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer1"]
+texture = ExtResource("4_812b3")
+
+[node name="Layer2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer2"]
+texture = ExtResource("4_812b3")
