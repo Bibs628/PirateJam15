@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=16 format=3 uid="uid://chcj7rlau5rj2"]
 
 [ext_resource type="PackedScene" uid="uid://gf5gpao83uvo" path="res://Tile.tscn" id="2_k8w5k"]
 [ext_resource type="PackedScene" uid="uid://d031nwvl3b77l" path="res://Scenes/Player.tscn" id="3_su7d1"]
@@ -7,7 +7,19 @@
 [ext_resource type="Script" path="res://Script/Classes/Terrain/DMGBlock.gd" id="6_v78tt"]
 [ext_resource type="PackedScene" uid="uid://dspfbullo1enh" path="res://Scenes/GUI.tscn" id="7_hsxks"]
 [ext_resource type="Texture2D" uid="uid://b2epg2a2omfts" path="res://Assets/GUI/Tilemap_Voreground.png" id="8_lese6"]
+[ext_resource type="Texture2D" uid="uid://cpc0731suhs4o" path="res://Assets/Background/Background_Original-pixelicious.png" id="9_q7ayc"]
 [ext_resource type="PackedScene" uid="uid://us0fcgwbrsum" path="res://Scenes/Monster.tscn" id="11_keqii"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3m1oy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_q7ayc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q32w2"]
 size = Vector2(192, 108)
@@ -46,7 +58,18 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 17
 sources/0 = SubResource("TileSetAtlasSource_l8744")
 
+[sub_resource type="Animation" id="Animation_ps38b"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxe8u"]
+_data = {
+"new_animation": SubResource("Animation_ps38b")
+}
+
 [node name="Game" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3m1oy")
 
 [node name="Player" parent="." groups=["State_Listeners"] instance=ExtResource("3_su7d1")]
 position = Vector2(88, -194.021)
@@ -107,3 +130,8 @@ collision_visibility_mode = 1
 format = 2
 layer_0/name = "Collision"
 layer_0/tile_data = PackedInt32Array(-327679, 65536, 0, -327678, 196608, 0, -327677, 0, 0, -327676, 196608, 0, -327675, 0, 0, -327674, 131072, 0, -262143, 0, 1, -262138, 65536, 1, -262142, 196608, 1, -262141, 131072, 1, -262140, 196608, 1, -262139, 131072, 1, -327670, 196608, 0, -327669, 0, 0, -458736, 0, 0, -458735, 196608, 0, -458734, 0, 0, -262135, 0, 1, -262132, 65536, 1, -327671, 65536, 0, -327668, 131072, 0, -262134, 196608, 1, -262133, 131072, 1, -393200, 196608, 1, -393199, 131072, 1, -393198, 131072, 1, -393201, 0, 1, -393197, 65536, 1, -458733, 131072, 0, -458737, 65536, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kxe8u")
+}

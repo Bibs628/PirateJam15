@@ -13,7 +13,7 @@ extends Entity
 @export var element_jump_velocity = {
 	element.FIRE: -400,
 	element.PLANT: -400,
-	element.WIND: -600,
+	element.WIND: -500,
 	element.EARTH: -200
 }
 
