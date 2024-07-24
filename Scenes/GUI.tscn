@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dspfbullo1enh"]
+[gd_scene load_steps=6 format=3 uid="uid://dspfbullo1enh"]
 
 [ext_resource type="PackedScene" uid="uid://dd01ycutk241" path="res://GUI/GUI.tscn" id="1_g21k8"]
 [ext_resource type="PackedScene" uid="uid://djsy8hriunmuw" path="res://Scenes/GameOver.tscn" id="2_moxxb"]
@@ -16,22 +16,6 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2jw8i"]
-blend_mode = 1
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e8edq"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}]
-
 [node name="CanvasLayer" type="CanvasLayer" groups=["UI"]]
 
 [node name="GUI" parent="." groups=["UI"] instance=ExtResource("1_g21k8")]
@@ -45,19 +29,10 @@ z_as_relative = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground"]
+[node name="Skybox" type="AnimatedSprite2D" parent="ParallaxBackground"]
 position = Vector2(960, 540)
 scale = Vector2(0.375, 0.548223)
 sprite_frames = SubResource("SpriteFrames_gfl1d")
-
-[node name="Skybox" type="AnimatedSprite2D" parent="ParallaxBackground"]
-visible = false
-visibility_layer = 512
-z_index = -3
-material = SubResource("CanvasItemMaterial_2jw8i")
-position = Vector2(960, 540)
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_e8edq")
 
 [node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 1

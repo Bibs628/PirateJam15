@@ -12,13 +12,14 @@ layout_mode = 0
 offset_right = 400.0
 offset_bottom = 100.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="Move" type="HBoxContainer" parent="Panel"]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 100.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Move"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -28,7 +29,49 @@ text = "[center]W
 A S
 D[/center]"
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/Move"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Move"
+
+[node name="Elements" type="HBoxContainer" parent="Panel"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Elements"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Q
+
+D[/center]"
+
+[node name="Label" type="Label" parent="Panel/Elements"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Potion"
+
+[node name="Attack" type="HBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Attack"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]
+LMB[/center]"
+
+[node name="Label" type="Label" parent="Panel/Attack"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Attack"

@@ -17,7 +17,7 @@ extends Entity
 	element.EARTH: -200
 }
 
-signal alchemist_status
+signal alchemist_element
 signal alchemist_hp(hp: int)
 signal alchemist_died
 signal menu_trigger
@@ -77,7 +77,7 @@ func _take_damage(dmg: int):
 
 
 func change_element(status: int):
-	alchemist_status.emit(status)
+	alchemist_element.emit(status)
 	current_element = status as element
 	speed = element_speed[status]
 	jump_velocity = element_jump_velocity[status]
