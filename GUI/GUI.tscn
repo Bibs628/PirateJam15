@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd01ycutk241"]
+[gd_scene load_steps=9 format=3 uid="uid://dd01ycutk241"]
 
-[ext_resource type="Texture2D" uid="uid://ctpau8qq40blg" path="res://Assets/missing.png" id="1_qkac6"]
 [ext_resource type="Script" path="res://Script/GUI.gd" id="1_yb6op"]
 [ext_resource type="Texture2D" uid="uid://b56kubwa3qgwr" path="res://Assets/GUI/HP_Heart.png" id="2_i5s3o"]
 [ext_resource type="Texture2D" uid="uid://car77r3h71etl" path="res://Assets/GUI/Flame.png" id="2_j18ua"]
+[ext_resource type="Texture2D" uid="uid://cgdngy3k3qas" path="res://Assets/GUI/Plant.png" id="3_vksrt"]
+[ext_resource type="Texture2D" uid="uid://csdldej2m7e0m" path="res://Assets/GUI/Wind.png" id="4_nbltd"]
+[ext_resource type="Texture2D" uid="uid://d4kdb4wfd3hld" path="res://Assets/GUI/Stein.png" id="5_1ftdd"]
+[ext_resource type="Texture2D" uid="uid://cs64bwjmv8086" path="res://Assets/GUI/HP_EnemyHeart.png" id="7_rwl65"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_to63x"]
 font_size = 150
@@ -64,7 +67,7 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_qkac6")
+texture = ExtResource("3_vksrt")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -73,7 +76,7 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_qkac6")
+texture = ExtResource("4_nbltd")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -82,7 +85,7 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_qkac6")
+texture = ExtResource("5_1ftdd")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -166,7 +169,7 @@ alignment = 1
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_qkac6")
+texture = ExtResource("7_rwl65")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -174,7 +177,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_qkac6")
+texture = ExtResource("7_rwl65")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -182,7 +185,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(62, 62)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_qkac6")
+texture = ExtResource("7_rwl65")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
