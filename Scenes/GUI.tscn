@@ -1,12 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://dspfbullo1enh"]
+[gd_scene load_steps=8 format=3 uid="uid://dspfbullo1enh"]
 
 [ext_resource type="PackedScene" uid="uid://dd01ycutk241" path="res://GUI/GUI.tscn" id="1_g21k8"]
 [ext_resource type="PackedScene" uid="uid://djsy8hriunmuw" path="res://Scenes/GameOver.tscn" id="2_moxxb"]
-[ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="3_u2bf1"]
+[ext_resource type="Texture2D" uid="uid://cpc0731suhs4o" path="res://Assets/Background/Background_Original-pixelicious.png" id="3_btdu1"]
 [ext_resource type="Texture2D" uid="uid://us06bqktvyr5" path="res://Assets/missing2.png" id="4_812b3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfl1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_btdu1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2jw8i"]
 blend_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8edq"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [node name="CanvasLayer" type="CanvasLayer" groups=["UI"]]
 
@@ -14,7 +38,6 @@ blend_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.1
 offset_bottom = 0.0
-metadata/_edit_use_anchors_ = true
 
 [node name="GameOver" parent="." groups=["UI"] instance=ExtResource("2_moxxb")]
 visible = false
@@ -22,13 +45,19 @@ z_as_relative = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Skybox" type="Sprite2D" parent="ParallaxBackground"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground"]
+position = Vector2(960, 540)
+scale = Vector2(0.375, 0.548223)
+sprite_frames = SubResource("SpriteFrames_gfl1d")
+
+[node name="Skybox" type="AnimatedSprite2D" parent="ParallaxBackground"]
+visible = false
 visibility_layer = 512
 z_index = -3
 material = SubResource("CanvasItemMaterial_2jw8i")
 position = Vector2(960, 540)
 scale = Vector2(10, 10)
-texture = ExtResource("3_u2bf1")
+sprite_frames = SubResource("SpriteFrames_e8edq")
 
 [node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 1

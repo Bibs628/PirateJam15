@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=14 format=3 uid="uid://chcj7rlau5rj2"]
 
 [ext_resource type="PackedScene" uid="uid://gf5gpao83uvo" path="res://Tile.tscn" id="2_k8w5k"]
 [ext_resource type="PackedScene" uid="uid://d031nwvl3b77l" path="res://Scenes/Player.tscn" id="3_su7d1"]
@@ -7,19 +7,7 @@
 [ext_resource type="Script" path="res://Script/Classes/Terrain/DMGBlock.gd" id="6_v78tt"]
 [ext_resource type="PackedScene" uid="uid://dspfbullo1enh" path="res://Scenes/GUI.tscn" id="7_hsxks"]
 [ext_resource type="Texture2D" uid="uid://b2epg2a2omfts" path="res://Assets/GUI/Tilemap_Voreground.png" id="8_lese6"]
-[ext_resource type="Texture2D" uid="uid://cpc0731suhs4o" path="res://Assets/Background/Background_Original-pixelicious.png" id="9_q7ayc"]
 [ext_resource type="PackedScene" uid="uid://us0fcgwbrsum" path="res://Scenes/Monster.tscn" id="11_keqii"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3m1oy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_q7ayc")
-}],
-"loop": true,
-"name": &"default",
-"speed": 1.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q32w2"]
 size = Vector2(192, 108)
@@ -67,9 +55,6 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_3m1oy")
 
 [node name="Player" parent="." groups=["State_Listeners"] instance=ExtResource("3_su7d1")]
 position = Vector2(88, -194.021)

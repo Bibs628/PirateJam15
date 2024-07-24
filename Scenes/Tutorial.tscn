@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c2x160u2a0dle"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 315.0
+offset_bottom = 140.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_direction = 2
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 100.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]W
+A S
+D[/center]"
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Move"
