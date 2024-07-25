@@ -50,6 +50,9 @@ func _input(_event):
 		change_element((current_element + 1 + element.size()) % element.size())
 	
 	if Input.is_action_just_pressed("Attack"):
+		if current_element == element.FIRE:
+			var mouse: Vector2 = get_viewport().get_mouse_position()
+			print("Feuerball positioniert auf %s" % mouse)
 		$ContextWeapon.visible = true
 		$ContextWeapon.get_node("CollisionShape2D").disabled = false
 		$ContextWeapon.get_node("Timer").start()
