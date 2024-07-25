@@ -29,6 +29,8 @@ enum element {
 		EARTH
 }
 
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var weapon: Hitbox = $ContextWeapon
 
 func _init():
 	print("Spieler spawned, %s hp." % [health_points])
@@ -37,6 +39,8 @@ func _init():
 func _input(_event):
 	if Input.is_action_just_pressed("Element Left"):
 		change_element((current_element - 1 + element.size()) % element.size())
+		sprite.flip_h = true
+		weapon.flip_h = true
 		
 	if Input.is_action_just_pressed("Element Right"):
 		change_element((current_element + 1 + element.size()) % element.size())
@@ -62,6 +66,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * speed
 		animation.play("Walk")
+		weapon.rotation_degrees = 180 if direction < 0 else 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		animation.play("Idle")
@@ -69,7 +74,7 @@ func _physics_process(delta):
 
 func _take_damage(dmg: int):
 	health_points -= dmg
-	print("Spieler bekam ", dmg, " Schaden. HP sind ", health_points, ".")
+	print("Spieler bekam %s Schaden. HP sind %s." % [dmg, health_points])
 	alchemist_hp.emit(health_points)
 	if health_points <= 0:
 		visible = false
