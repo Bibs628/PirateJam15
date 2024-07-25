@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://c2x160u2a0dle"]
+[gd_scene load_steps=2 format=3 uid="uid://c2x160u2a0dle"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpbaj"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -11,6 +14,7 @@ layout_direction = 2
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jpbaj")
 
 [node name="Move" type="HBoxContainer" parent="Panel"]
 custom_minimum_size = Vector2(100, 0)

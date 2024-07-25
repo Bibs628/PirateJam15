@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd01ycutk241"]
+[gd_scene load_steps=12 format=3 uid="uid://dd01ycutk241"]
 
 [ext_resource type="Script" path="res://Script/GUI.gd" id="1_7nw0t"]
 [ext_resource type="Texture2D" uid="uid://car77r3h71etl" path="res://Assets/GUI/Flame.png" id="2_bwxw0"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://desb2o4eujtt7" path="res://Assets/GUI/HP_EnemyHeart.png" id="7_ncdu3"]
 [ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="8_c8abt"]
 [ext_resource type="PackedScene" uid="uid://c2x160u2a0dle" path="res://Scenes/Tutorial.tscn" id="9_7w7cn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jknhp"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_to63x"]
 font_size = 150
@@ -32,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jknhp")
 
 [node name="UI" type="HBoxContainer" parent="TopPanel"]
 custom_minimum_size = Vector2(240, 23)
@@ -141,6 +145,7 @@ tab_size = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="Label" parent="TopPanel/UI/Placeholder"]
+visible = false
 layout_mode = 0
 offset_left = 148.0
 offset_top = 4.0
