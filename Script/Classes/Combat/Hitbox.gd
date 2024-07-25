@@ -16,7 +16,12 @@ func timer_out():
 	$Timer.stop()
 
 
-func throw_fireball():
+func throw_fireball(mouse: Vector2, max_fireball_distance: int):
+	visible = true
+	print(global_position)
 	var fireball = fire_weapon.instantiate()
-	fireball.weapon_direction = rotation
+	var mouse_translate = Vector2(500, 500)
 	fireball.weapon_position = global_position
+	fireball.weapon_rotation = global_position.angle_to(mouse_translate)
+	print(fireball.weapon_rotation)
+	add_child.call_deferred(fireball)

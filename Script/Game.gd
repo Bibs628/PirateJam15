@@ -44,4 +44,4 @@ Empfaenger: Weapon
 """
 ## Sender: Player
 func send_mouse_position(mouse: Vector2, max_fireball_distance: int):
-	weapon.get_node("Fire").send_fireball(mouse, max_fireball_distance)
+	weapon.throw_fireball(mouse, max_fireball_distance)

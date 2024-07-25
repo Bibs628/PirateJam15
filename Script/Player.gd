@@ -37,7 +37,7 @@ enum element {
 }
 
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var weapon: Hitbox = $ContextWeapon
+@onready var weapon: Area2D = $Other
 var did_tutorial: Array[bool] = [false, false, false, false]
 
 func _init():
@@ -63,9 +63,10 @@ func _input(_event):
 			var mouse: Vector2 = get_viewport().get_mouse_position()
 			mouse_fireball.emit(mouse, max_fireball_distance)
 			print("Feuerball positioniert auf %s. Maximale Distanz betraegt %s." % [mouse, max_fireball_distance])
-		$ContextWeapon.visible = true
-		$ContextWeapon.get_node("CollisionShape2D").disabled = false
-		$ContextWeapon.get_node("Timer").start()
+		else:
+			weapon.get_node("Timer").start()
+			weapon.visible = true
+			weapon.get_node("CollisionShape2D").disabled = false
 		tutorial_signal(3, "Attacke")
 
 

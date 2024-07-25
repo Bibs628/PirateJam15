@@ -92,41 +92,40 @@ position = Vector2(1.43051e-06, 0)
 scale = Vector2(0.333333, 0.592593)
 texture = ExtResource("3_u5fr4")
 
-[node name="ContextWeapon" type="Area2D" parent="."]
+[node name="Fire" parent="." instance=ExtResource("4_r8osa")]
 visible = false
-collision_layer = 2
-collision_mask = 2
+
+[node name="Other" type="Area2D" parent="."]
+visible = false
 script = ExtResource("3_v5uvk")
 
-[node name="Fire" parent="ContextWeapon" instance=ExtResource("4_r8osa")]
-visible = false
+[node name="Timer" type="Timer" parent="Other"]
+process_callback = 0
+one_shot = true
 
-[node name="Plant" type="Node2D" parent="ContextWeapon"]
-
-[node name="Wind" type="Node2D" parent="ContextWeapon"]
-
-[node name="Earth" type="Node2D" parent="ContextWeapon"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ContextWeapon"]
-position = Vector2(80, 0)
-scale = Vector2(0.5, 0.592593)
-texture = ExtResource("4_fxvb6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ContextWeapon"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Other"]
+root_node = NodePath("../../ContextWeapon")
 libraries = {
 "": SubResource("AnimationLibrary_msl72")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ContextWeapon"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other"]
 visible = false
 position = Vector2(84, 0)
 scale = Vector2(0.5, 0.592593)
 shape = SubResource("RectangleShape2D_be474")
 disabled = true
 
-[node name="Timer" type="Timer" parent="ContextWeapon"]
-process_callback = 0
-one_shot = true
+[node name="Sprite2D" type="Sprite2D" parent="Other"]
+position = Vector2(80, 0)
+scale = Vector2(0.5, 0.592593)
+texture = ExtResource("4_fxvb6")
+
+[node name="ContextWeapon" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_v5uvk")
 
 [node name="CollisionHandler" type="CollisionShape2D" parent="."]
 visibility_layer = 513
@@ -147,5 +146,5 @@ script = ExtResource("5_wkb2w")
 
 [node name="TutorialTimer" type="Timer" parent="."]
 
+[connection signal="timeout" from="Other/Timer" to="Other" method="timer_out"]
 [connection signal="area_entered" from="ContextWeapon" to="ContextWeapon" method="is_in_area"]
-[connection signal="timeout" from="ContextWeapon/Timer" to="ContextWeapon" method="timer_out"]

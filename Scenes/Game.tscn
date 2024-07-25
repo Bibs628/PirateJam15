@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=16 format=3 uid="uid://chcj7rlau5rj2"]
 
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_e00er"]
 [ext_resource type="PackedScene" uid="uid://gf5gpao83uvo" path="res://Scenes/Tile.tscn" id="2_k8w5k"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Script/Classes/Terrain/DMGBlock.gd" id="6_v78tt"]
 [ext_resource type="PackedScene" uid="uid://dspfbullo1enh" path="res://Scenes/Interface.tscn" id="7_hsxks"]
 [ext_resource type="Texture2D" uid="uid://b2epg2a2omfts" path="res://Assets/GUI/Tilemap_Voreground.png" id="8_lese6"]
+[ext_resource type="Texture2D" uid="uid://car77r3h71etl" path="res://Assets/GUI/Flame.png" id="10_dyy5t"]
 [ext_resource type="PackedScene" uid="uid://us0fcgwbrsum" path="res://Scenes/Monster.tscn" id="11_keqii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q32w2"]
@@ -131,6 +132,11 @@ energy = 0.2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 max_distance = 999.0
+
+[node name="AngleDebugSprite" type="Sprite2D" parent="."]
+position = Vector2(500, 500)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_dyy5t")
 
 [connection signal="alchemist_died" from="Player" to="." method="alchemist_died"]
 [connection signal="alchemist_element" from="Player" to="." method="alchemist_element_change"]
