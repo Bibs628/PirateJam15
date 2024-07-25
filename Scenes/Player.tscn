@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://Script/Camera.gd" id="5_wkb2w"]
 [ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="6_uoael"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be474"]
+size = Vector2(208, 135)
+
 [sub_resource type="Animation" id="Animation_nx5vi"]
 resource_name = "Attack"
 
@@ -15,9 +18,6 @@ resource_name = "Attack"
 _data = {
 "Attack": SubResource("Animation_nx5vi")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_be474"]
-size = Vector2(208, 135)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1srcd"]
 size = Vector2(64, 64)
@@ -96,6 +96,26 @@ visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_v5uvk")
+
+[node name="Fire" type="Area2D" parent="ContextWeapon"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ContextWeapon/Fire"]
+position = Vector2(80, 0)
+scale = Vector2(0.5, 0.592593)
+texture = ExtResource("4_fxvb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContextWeapon/Fire"]
+visible = false
+position = Vector2(84, 0)
+scale = Vector2(0.5, 0.592593)
+shape = SubResource("RectangleShape2D_be474")
+disabled = true
+
+[node name="Plant" type="Node2D" parent="ContextWeapon"]
+
+[node name="Wind" type="Node2D" parent="ContextWeapon"]
+
+[node name="Earth" type="Node2D" parent="ContextWeapon"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ContextWeapon"]
 position = Vector2(80, 0)
