@@ -32,15 +32,19 @@ enum element {
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var weapon: Hitbox = $ContextWeapon
 
+
 func _init():
 	print("Spieler spawned, %s hp." % [health_points])
+
+
+func _ready():
+	speed = element_speed[current_element]
+	jump_velocity = element_jump_velocity[current_element]
 
 
 func _input(_event):
 	if Input.is_action_just_pressed("Element Left"):
 		change_element((current_element - 1 + element.size()) % element.size())
-		sprite.flip_h = true
-		weapon.flip_h = true
 		
 	if Input.is_action_just_pressed("Element Right"):
 		change_element((current_element + 1 + element.size()) % element.size())
