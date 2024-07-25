@@ -155,5 +155,7 @@ bus = &"FX"
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("5_wkb2w")
 
+[node name="TutorialTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="ContextWeapon" to="ContextWeapon" method="is_in_area"]
 [connection signal="timeout" from="ContextWeapon/Timer" to="ContextWeapon" method="timer_out"]

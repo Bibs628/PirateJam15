@@ -135,3 +135,5 @@ max_distance = 999.0
 [connection signal="alchemist_died" from="Player" to="." method="alchemist_died"]
 [connection signal="alchemist_element" from="Player" to="." method="alchemist_element_change"]
 [connection signal="alchemist_hp" from="Player" to="." method="alchemist_hp_change"]
+[connection signal="mouse_fireball" from="Player" to="." method="send_mouse_position"]
+[connection signal="tutorial_trigger" from="Player" to="." method="change_tutorial_stage"]

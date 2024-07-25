@@ -13,7 +13,6 @@ offset_right = 400.0
 offset_bottom = 100.0
 
 [node name="Move" type="HBoxContainer" parent="Panel"]
-visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_right = 400.0
@@ -33,6 +32,29 @@ D[/center]"
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Move"
+
+[node name="Jump" type="HBoxContainer" parent="Panel"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Jump"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]
+Space
+[/center]"
+
+[node name="Label" type="Label" parent="Panel/Jump"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Jump
+"
 
 [node name="Elements" type="HBoxContainer" parent="Panel"]
 visible = false
@@ -57,6 +79,7 @@ theme_override_font_sizes/font_size = 50
 text = "Potion"
 
 [node name="Attack" type="HBoxContainer" parent="Panel"]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_right = 400.0
