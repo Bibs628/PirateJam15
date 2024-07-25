@@ -50,20 +50,15 @@ func _ready():
 
 
 func _input(_event):
-	if Input.is_action_just_pressed("Element Right") \
-	or Input.is_action_just_pressed("Element Left") and did_tutorial[1] and not did_tutorial[2]:
-		tutorial_signal(2, "Elemente")
-
 	if Input.is_action_just_pressed("Element Left"):
 		change_element((current_element - 1 + element.size()) % element.size())
+		tutorial_signal(2, "Elemente")
 		
 	if Input.is_action_just_pressed("Element Right"):
 		change_element((current_element + 1 + element.size()) % element.size())
+		tutorial_signal(2, "Elemente")
 	
 	if Input.is_action_just_pressed("Attack"):
-		if did_tutorial[2] and not did_tutorial[3]:
-			tutorial_signal(3, "Attacke")
-
 		if current_element == element.FIRE:
 			var mouse: Vector2 = get_viewport().get_mouse_position()
 			mouse_fireball.emit(mouse, max_fireball_distance)
@@ -71,6 +66,7 @@ func _input(_event):
 		$ContextWeapon.visible = true
 		$ContextWeapon.get_node("CollisionShape2D").disabled = false
 		$ContextWeapon.get_node("Timer").start()
+		tutorial_signal(3, "Attacke")
 
 
 func _physics_process(delta):
@@ -83,17 +79,14 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 		animation.play("Jump")
 		$AudioStreamPlayer2D.play()
-		if not did_tutorial[1] and did_tutorial[0]:
-			tutorial_signal(1, "Springen")
+		tutorial_signal(1, "Springen")
 
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		velocity.x = direction * speed
 		animation.play("Walk")
 		weapon.rotation_degrees = 180 if direction < 0 else 0
-
-		if not did_tutorial[0]:
-			tutorial_signal(0, "Laufen")
+		tutorial_signal(0, "Laufen")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		animation.play("Idle")
@@ -117,6 +110,8 @@ func change_element(status: int):
 
 
 func tutorial_signal(tutorial_index: int, tutorial_name: String):
-	did_tutorial[tutorial_index] = true
-	print("Tutorial %s: %s fertig!" % [tutorial_index + 1, tutorial_name])
-	tutorial_trigger.emit(tutorial_index)
+	if (tutorial_index == 0 and not did_tutorial[tutorial_index]) \
+	or (did_tutorial[tutorial_index - 1] and did_tutorial[tutorial_index] == false):
+		did_tutorial[tutorial_index] = true
+		print("Tutorial %s: %s fertig!" % [tutorial_index + 1, tutorial_name])
+		tutorial_trigger.emit(tutorial_index)
