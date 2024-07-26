@@ -20,6 +20,7 @@ func throw_fireball(mouse: Vector2, max_fireball_distance: int):
 	visible = true
 	var fireball = fire_weapon.instantiate()
 	fireball.weapon_position = global_position
-	fireball.vector_to_mouse = mouse - global_position
+	fireball.vector_to_mouse = (mouse - global_position).normalized() * max_fireball_distance
+	fireball.max_fireball_distance = max_fireball_distance
 
 	add_child.call_deferred(fireball, max_fireball_distance)

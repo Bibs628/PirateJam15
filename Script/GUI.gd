@@ -3,9 +3,6 @@ extends Control
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready():
-	# Holt die Nodes von den anderen Szenen.
-	var game = get_tree().get_nodes_in_group("State_Listeners")
-	
 	# Initialisiert als Status 0.
 	alchemist_status_manager(0)
 	$Pause.visible = false
