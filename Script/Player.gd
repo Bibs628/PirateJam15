@@ -60,7 +60,7 @@ func _input(_event):
 	
 	if Input.is_action_just_pressed("Attack"):
 		if current_element == element.FIRE:
-			var mouse: Vector2 = get_viewport().get_mouse_position()
+			var mouse: Vector2 = get_global_mouse_position()
 			mouse_fireball.emit(mouse, max_fireball_distance)
 			print("Feuerball positioniert auf %s. Maximale Distanz betraegt %s." % [mouse, max_fireball_distance])
 		else:
