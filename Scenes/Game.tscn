@@ -1,18 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=14 format=3 uid="uid://chcj7rlau5rj2"]
 
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_e00er"]
 [ext_resource type="PackedScene" uid="uid://gf5gpao83uvo" path="res://Scenes/Tile.tscn" id="2_k8w5k"]
 [ext_resource type="PackedScene" uid="uid://d031nwvl3b77l" path="res://Scenes/Player.tscn" id="3_su7d1"]
-[ext_resource type="Texture2D" uid="uid://bwdn8tsnx8so5" path="res://Assets/missing3.png" id="4_u1vux"]
 [ext_resource type="Script" path="res://Script/Classes/Terrain/NeutralBlock.gd" id="5_bkupr"]
 [ext_resource type="Script" path="res://Script/Classes/Terrain/DMGBlock.gd" id="6_v78tt"]
 [ext_resource type="PackedScene" uid="uid://dspfbullo1enh" path="res://Scenes/Interface.tscn" id="7_hsxks"]
 [ext_resource type="Texture2D" uid="uid://b2epg2a2omfts" path="res://Assets/GUI/Tilemap_Voreground.png" id="8_lese6"]
 [ext_resource type="Texture2D" uid="uid://car77r3h71etl" path="res://Assets/GUI/Flame.png" id="10_dyy5t"]
 [ext_resource type="PackedScene" uid="uid://us0fcgwbrsum" path="res://Scenes/Monster.tscn" id="11_keqii"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q32w2"]
-size = Vector2(192, 108)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8744"]
 texture = ExtResource("8_lese6")
@@ -21,12 +17,15 @@ use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -5, 8, -8, 4.875)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 4.875, 4.625, 8, -8, 8, -8, -8)
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
@@ -36,16 +35,19 @@ use_texture_padding = false
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.12493, -8, -8, -8, 8, -8, 8, 8, -8, 8, -8, -8)
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSet" id="TileSet_f852u"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 17
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_l8744")
 
 [sub_resource type="Animation" id="Animation_ps38b"]
@@ -79,37 +81,16 @@ scale = Vector2(0.623, 0.4)
 [node name="SampleTile3" parent="." instance=ExtResource("2_k8w5k")]
 position = Vector2(-134, -54)
 
-[node name="SampleTile3" parent="SampleTile3" instance=ExtResource("2_k8w5k")]
-position = Vector2(970, -352)
-
-[node name="SampleTile3" parent="SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
-position = Vector2(226, -76)
-
-[node name="SampleTile3" parent="SampleTile3/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
-position = Vector2(230, -48)
-
-[node name="SampleTile3" parent="SampleTile3/SampleTile3/SampleTile3/SampleTile3" instance=ExtResource("2_k8w5k")]
-position = Vector2(228, 2)
-
 [node name="DamageTile" type="StaticBody2D" parent="."]
 position = Vector2(1522, -297)
 script = ExtResource("6_v78tt")
 
-[node name="Sprite2D" type="Sprite2D" parent="DamageTile"]
-texture = ExtResource("4_u1vux")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageTile"]
-shape = SubResource("RectangleShape2D_q32w2")
-
 [node name="Area2D" type="Area2D" parent="DamageTile"]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageTile/Area2D"]
-shape = SubResource("RectangleShape2D_q32w2")
 
 [node name="Interface" parent="." groups=["State_Listeners"] instance=ExtResource("7_hsxks")]
 
 [node name="Monster" parent="." groups=["Player_Listener"] instance=ExtResource("11_keqii")]
-position = Vector2(1523, -667)
+position = Vector2(1336, -884)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
