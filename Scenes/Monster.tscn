@@ -66,4 +66,7 @@ shape = SubResource("CircleShape2D_sfsys")
 stream = ExtResource("4_4g7cb")
 bus = &"FX"
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true
+
 [connection signal="body_entered" from="Awareness" to="." method="_on_awareness_body_entered"]

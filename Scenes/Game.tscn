@@ -91,6 +91,7 @@ script = ExtResource("6_v78tt")
 [node name="Monster" parent="." groups=["Player_Listener"] instance=ExtResource("11_keqii")]
 position = Vector2(1336, -884)
 motion_mode = 1
+jump_velocity = -200
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
