@@ -93,12 +93,11 @@ func _physics_process(delta):
 		animation.play("Idle")
 
 
-func _take_damage(dmg: int):
-	health_points -= dmg
+func take_damage(dmg: int):
+	super.take_damage(dmg)
 	print("Spieler bekam %s Schaden. HP sind %s." % [dmg, health_points])
 	alchemist_hp.emit(health_points)
 	if health_points <= 0:
-		visible = false
 		alchemist_died.emit()
 
 

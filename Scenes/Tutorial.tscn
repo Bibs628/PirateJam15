@@ -75,7 +75,7 @@ theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[center]Q
 
-D[/center]"
+E[/center]"
 
 [node name="Label" type="Label" parent="Panel/Elements"]
 layout_mode = 2

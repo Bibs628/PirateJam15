@@ -11,7 +11,7 @@ extends Node2D
 @onready var tutorial: Control = gui.get_node("Tutorial").get_node("Panel")
 @onready var game_over: Control = user_interface.get_node("GameOver")
 
-@onready var monster: Array = [$Monster]
+@onready var monster = $Monster
 
 
 """
@@ -36,6 +36,15 @@ func change_tutorial_stage(tutorial_index: int):
 		tutorial.get_child(tutorial_index + 1).visible = true
 	if tutorial_index == 3:
 		tutorial.visible = false
+
+
+## Sender: Monster
+func monster_died():
+	gui.monster_bar_manager(0)
+
+
+func monster_hp_change(dmg: int):
+	gui.monster_bar_manager(dmg)
 
 
 

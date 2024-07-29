@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://us0fcgwbrsum"]
+[gd_scene load_steps=12 format=3 uid="uid://us0fcgwbrsum"]
 
 [ext_resource type="Script" path="res://Script/Classes/Monster.gd" id="1_knm4i"]
 [ext_resource type="Texture2D" uid="uid://bgqiudrg5s07x" path="res://icon.svg" id="2_itrjv"]
@@ -12,6 +12,18 @@ size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y0l0"]
 size = Vector2(88, 87)
+
+[sub_resource type="Animation" id="Animation_usmyr"]
+resource_name = "Defense"
+
+[sub_resource type="Animation" id="Animation_k8rs1"]
+resource_name = "Attack"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crtcy"]
+_data = {
+"Attack": SubResource("Animation_k8rs1"),
+"Defense": SubResource("Animation_usmyr")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sfsys"]
 radius = 450.0
@@ -40,6 +52,9 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_2y0l0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_crtcy")
+}
 
 [node name="Awareness" type="Area2D" parent="."]
 

@@ -119,3 +119,5 @@ max_distance = 999.0
 [connection signal="alchemist_hp" from="Player" to="." method="alchemist_hp_change"]
 [connection signal="mouse_fireball" from="Player" to="." method="send_mouse_position"]
 [connection signal="tutorial_trigger" from="Player" to="." method="change_tutorial_stage"]
+[connection signal="monster_died" from="Monster" to="." method="monster_died"]
+[connection signal="monster_hp" from="Monster" to="." method="monster_hp_change"]
