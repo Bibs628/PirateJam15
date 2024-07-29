@@ -65,7 +65,6 @@ func _input(_event):
 			print("Feuerball positioniert auf %s. Maximale Distanz betraegt %s." % [mouse, max_fireball_distance])
 		else:
 			weapon.get_node("Timer").start()
-			print("Hello?")
 			weapon.visible = true
 			weapon.get_node("CollisionShape2D").disabled = false
 		tutorial_signal(3, "Attacke")

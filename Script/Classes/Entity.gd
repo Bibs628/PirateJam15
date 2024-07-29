@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var speed: int = 300
 @export var jump_velocity: int = -400
 @export var health_points: int = 3;
+var entity_can_fly: bool = false
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -24,12 +25,13 @@ func _physics_process(delta):
 	else:
 		move_and_slide()
 	
-	if not is_on_floor():
+	if not is_on_floor() and not entity_can_fly:
 		velocity.y += gravity * delta
 	
 	if position.y > 1080:
 		_take_damage(3)
 		position.y = 1079
+		visible = false
 		
 
 func _deal_damage():

@@ -7,6 +7,7 @@ var aware_of_player = false
 
 func _init():
 	super._init("Monster")
+	entity_can_fly = true
 	
 
 func _physics_process(delta):
