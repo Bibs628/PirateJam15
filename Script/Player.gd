@@ -52,6 +52,7 @@ func _ready():
 
 func _input(_event):
 	if Input.is_action_just_pressed("Element Left"):
+		sprite.flip_h = true
 		change_element((current_element - 1 + element.size()) % element.size())
 		tutorial_signal(2, "Elemente")
 		
@@ -90,6 +91,7 @@ func _physics_process(delta):
 			velocity.x = direction * speed
 			tutorial_signal(0, "Laufen")
 			weapon.rotation_degrees = 180 if direction < 0 else 0
+			sprite.flip_h = true if direction < 0 else false
 		else:
 			animation.play("Idle")
 			velocity.x = move_toward(velocity.x, 0, speed)
