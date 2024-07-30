@@ -10,10 +10,7 @@ var max_fireball_distance: int = 0
 
 func _ready():
 	global_position = weapon_position
-
-
-func send_fireball(mouse):
-	weapon_position += mouse * projectile_speed
+	rotation_degrees = rad_to_deg(get_angle_to(vector_to_mouse))
 
 
 func _physics_process(_delta):
