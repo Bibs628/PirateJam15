@@ -81,6 +81,8 @@ func take_damage(dmg: int):
 	super.take_damage(dmg)
 	print("SUSSY")
 	monster_hp.emit(dmg)
+	if health_points <= 0:
+		queue_free()
 
 
 func flap_wings():

@@ -6,8 +6,7 @@ extends Area2D
 
 
 func is_in_area(_area):
-	if visible:
-		print("Monster attackiert!")
+	print("Monster attackiert!")
 
 
 func timer_out():
