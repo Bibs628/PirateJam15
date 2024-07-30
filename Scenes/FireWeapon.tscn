@@ -1,21 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://barhbxkyxtuvh"]
 
 [ext_resource type="Script" path="res://Script/Classes/Combat/FireWeapon.gd" id="1_n8f0v"]
-[ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="2_qyblg"]
+[ext_resource type="Texture2D" uid="uid://bkag0bvenkxlt" path="res://Assets/Charakter/Fireball.png" id="2_6lj1h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_be474"]
-size = Vector2(208, 135)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yiwi4"]
+radius = 78.0
+height = 202.5
 
 [node name="Fire" type="CharacterBody2D"]
 script = ExtResource("1_n8f0v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(64, 0)
-scale = Vector2(0.333333, 0.592593)
-texture = ExtResource("2_qyblg")
+position = Vector2(84, 0)
+scale = Vector2(0.0866667, 0.1)
+texture = ExtResource("2_6lj1h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(84, 0)
+rotation = 4.71239
 scale = Vector2(0.5, 0.592593)
-shape = SubResource("RectangleShape2D_be474")
+shape = SubResource("CapsuleShape2D_yiwi4")
 disabled = true

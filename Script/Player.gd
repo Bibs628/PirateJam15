@@ -19,6 +19,7 @@ extends Entity
 
 @export_group("Kampf")
 @export var max_fireball_distance: int = 250
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 signal alchemist_element
 signal alchemist_hp(hp: int)
@@ -83,15 +84,19 @@ func _physics_process(delta):
 		tutorial_signal(1, "Springen")
 
 	var direction = Input.get_axis("Left", "Right")
-	if direction:
-		velocity.x = direction * speed
-		animation.play("Walk")
-		weapon.rotation_degrees = 180 if direction < 0 else 0
-		tutorial_signal(0, "Laufen")
+	if is_on_floor():
+		if direction:
+			animation.play("Walk")
+			velocity.x = direction * speed
+			tutorial_signal(0, "Laufen")
+			weapon.rotation_degrees = 180 if direction < 0 else 0
+		else:
+			animation.play("Idle")
+			velocity.x = move_toward(velocity.x, 0, speed)
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		animation.play("Idle")
-
+		animation.play("Jump")
+		velocity.x = direction * speed
+ 
 
 func take_damage(dmg: int):
 	super.take_damage(dmg)

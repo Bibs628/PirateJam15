@@ -9,7 +9,6 @@ extends CharacterBody2D
 @export var health_points: int = 3;
 var entity_can_fly: bool = false
 
-@onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -38,13 +37,11 @@ func _physics_process(delta):
 
 func deal_damage():
 	# TODO: Entity uebt Schaden aus.
-	animation.play("Attack")
 	emit_signal("Attack")
 
 
 func take_damage(dmg: int):
 	health_points -= dmg
-	animation.play("Defense")
 
 	if health_points <= 0: 
 		health_points = 0

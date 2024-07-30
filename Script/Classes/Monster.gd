@@ -1,7 +1,10 @@
 class_name Monster
 extends Entity
 
-var aware_of_player = false
+var aware_of_player: bool = false
+var attacked_by_player: bool = false
+var fireball_position: Vector2
+var try_to_evade: bool = false
 @onready var raycast = $RayCast2D
 @onready var player_node = get_tree().get_nodes_in_group("Player")
 @onready var player = player_node[0]
@@ -31,6 +34,19 @@ func _physics_process(delta):
 	if raycast.is_colliding():
 		flap_wings()
 
+	if try_to_evade:
+		position += (fireball_position - position) / speed
+		try_to_evade = false
+		print("guck")
+	
+	if attacked_by_player and aware_of_player:
+		print(position.x)
+		position.x += 3* (fireball_position.x - position.x) / float(speed)
+		print(position.x)
+		try_to_evade = true
+		attacked_by_player = false
+
+
 
 func take_damage(dmg: int):
 	super.take_damage(dmg)
@@ -39,6 +55,13 @@ func take_damage(dmg: int):
 
 func flap_wings():
 	velocity.y = jump_velocity
+
+
+'''func try_to_evade(mouse: Vector2):
+	if mouse.x > position.x:
+		position.x += speed
+	else:
+		position.x -= speed'''
 
 
 func combat_logic():

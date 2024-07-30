@@ -1,4 +1,3 @@
-@tool
 class_name FireWeapon
 extends CharacterBody2D
 

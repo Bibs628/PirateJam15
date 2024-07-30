@@ -16,6 +16,7 @@ enum Terrain {
 func _init(terrain_name: String = "Block"):
 	print("Terrain \"%s\" spawned." % terrain_name)
 
+
 func _ready():
 	print("Environment Objekt spawned.")
 
