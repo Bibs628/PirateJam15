@@ -1,6 +1,7 @@
 extends Control
 
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+var monster_health: int = 3
 
 func _ready():
 	# Initialisiert als Status 0.
@@ -31,9 +32,12 @@ func alchemist_status_manager(status: int):
 
 
 func monster_bar_manager(health_points):
+	monster_health -= health_points
+	if monster_health <= 0:
+		monster_health = 0
 	var monster_hp = get_container("MobHP")
 	for i in range(monster_hp.size()):
-		monster_hp[i].visible = i < health_points
+		monster_hp[i].visible = i < monster_health
 
 
 func get_container(container: String) -> Array:

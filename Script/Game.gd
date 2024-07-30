@@ -12,6 +12,8 @@ extends Node2D
 @onready var game_over: Control = user_interface.get_node("GameOver")
 
 @onready var monster = $Monster
+@onready var monster_fireball = null
+@onready var player_fireball = null
 
 
 """
@@ -49,10 +51,11 @@ func monster_hp_change(dmg: int):
 
 
 """
-Empfaenger: Weapon
+Empfaenger: PlayerWeapon
 """
 ## Sender: Player
 func send_mouse_position(mouse: Vector2, max_fireball_distance: int):
 	weapon.throw_fireball(mouse, max_fireball_distance)
-	monster.attacked_by_player = true
-	monster.fireball_position = mouse
+	if monster:
+		monster.attacked_by_player = true
+		monster.fireball_position = mouse

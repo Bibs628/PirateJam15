@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://barhbxkyxtuvh" path="res://Scenes/FireWeapon.tscn" id="4_r8osa"]
 [ext_resource type="Script" path="res://Script/Camera.gd" id="5_wkb2w"]
 [ext_resource type="Texture2D" uid="uid://bmtgx40amydoy" path="res://Assets/Charakter/Charakter_Jump.png" id="6_cjs3a"]
-[ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="6_uoael"]
 
 [sub_resource type="Animation" id="Animation_nx5vi"]
 resource_name = "Attack"
@@ -86,6 +85,8 @@ _data = {
 "Walk": SubResource("Animation_ndd02")
 }
 
+[sub_resource type="AudioStream" id="AudioStream_iv27i"]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_fo4k8")
 
@@ -140,7 +141,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_uoael")
+stream = SubResource("AudioStream_iv27i")
 bus = &"FX"
 
 [node name="Camera" type="Camera2D" parent="."]

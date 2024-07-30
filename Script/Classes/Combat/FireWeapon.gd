@@ -27,7 +27,8 @@ func _physics_process(_delta):
 func character_in_area(body):
 	if character.name == "Other" and body.name == "Player":
 		print("Monster traf Spieler.")
-		monster_dmg.emit()
+		body.take_damage(1)
 	elif character.name == "ContextWeapon" and body.name == "Monster":
 		print("Spieler traf Monster.")
 		player_dmg.emit()
+		body.take_damage(1)
