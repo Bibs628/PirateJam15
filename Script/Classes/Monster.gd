@@ -7,12 +7,15 @@ var fireball_position: Vector2
 var try_to_evade: bool = false
 var rng_movement: bool = true
 var random_target_position: Vector2
+var attack_player: bool = false
 
 @onready var raycast = $RayCast2D
 @onready var player_node = get_tree().get_nodes_in_group("Player")
 @onready var player = player_node[0]
 @onready var hurtbox = $Hurtbox
+@onready var fire_weapon = $Other
 @export var raycast_distance: int = 250
+@export var max_fireball_distance: int = 250
 
 signal monster_hp(hp: int)
 signal monster_died
@@ -33,11 +36,11 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	if aware_of_player:
 		position += (player.position - position) / speed
-	#else:
-	#	random_movement(delta)
+		if $WeaponTimer.is_stopped():
+			$WeaponTimer.start()
 	elif rng_movement:
 		position.x += randi_range(-speed, speed) / float(0.5 * speed)
-		rng_movement != rng_movement
+		rng_movement = false
 
 	if health_points <= 0:
 		monster_died.emit()
@@ -53,6 +56,9 @@ func _physics_process(delta):
 		position.x += 3 * (fireball_position.x - position.x) / float(speed)
 		try_to_evade = true
 		attacked_by_player = false
+		
+	if attack_player:
+		combat_logic()
 
 
 func random_movement(delta):
@@ -69,7 +75,6 @@ func random_movement_timer():
 		$Timer.start()
 		random_target_position.x = randf_range(-speed, speed)
 		rng_movement = true
-	pass
 
 
 func take_damage(dmg: int):
@@ -83,8 +88,9 @@ func flap_wings():
 
 
 func combat_logic():
-	#TODO: KI
-	pass
+	print("Monster-Feuerball positioniert auf %s." % player.position)
+	fire_weapon.throw_fireball(player.position, max_fireball_distance)
+	#$WeaponTimer.start()
 
 
 func on_awareness_body_entered(body):

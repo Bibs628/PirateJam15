@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://us0fcgwbrsum"]
+[gd_scene load_steps=18 format=3 uid="uid://us0fcgwbrsum"]
 
 [ext_resource type="Script" path="res://Script/Classes/Monster.gd" id="1_knm4i"]
 [ext_resource type="Texture2D" uid="uid://bgqiudrg5s07x" path="res://icon.svg" id="2_itrjv"]
 [ext_resource type="Script" path="res://Script/Classes/Combat/Hurtbox.gd" id="3_ethaj"]
 [ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="4_4g7cb"]
+[ext_resource type="PackedScene" uid="uid://barhbxkyxtuvh" path="res://Scenes/FireWeapon.tscn" id="5_niqf0"]
+[ext_resource type="Script" path="res://Script/Classes/Combat/Hitbox.gd" id="6_pwlxe"]
+[ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="7_q6v85"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7fh6"]
 
@@ -27,6 +30,17 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sfsys"]
 radius = 450.0
+
+[sub_resource type="Animation" id="Animation_nx5vi"]
+resource_name = "Attack"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msl72"]
+_data = {
+"Attack": SubResource("Animation_nx5vi")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ga0t"]
+size = Vector2(192, 108)
 
 [node name="Monster" type="CharacterBody2D" groups=["Monster_Listener"]]
 position = Vector2(802, -512)
@@ -73,5 +87,39 @@ collide_with_areas = true
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="WeaponTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Fire" parent="." instance=ExtResource("5_niqf0")]
+
+[node name="Other" type="Area2D" parent="."]
+visible = false
+script = ExtResource("6_pwlxe")
+
+[node name="Timer" type="Timer" parent="Other"]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Other"]
+root_node = NodePath("../../ContextWeapon")
+libraries = {
+"": SubResource("AnimationLibrary_msl72")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other"]
+visible = false
+position = Vector2(80, 0)
+scale = Vector2(0.5, 0.592593)
+shape = SubResource("RectangleShape2D_6ga0t")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Other"]
+visible = false
+position = Vector2(80, 0)
+scale = Vector2(0.5, 0.592593)
+texture = ExtResource("7_q6v85")
+
 [connection signal="body_entered" from="Awareness" to="." method="on_awareness_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="random_movement_timer"]
+[connection signal="timeout" from="WeaponTimer" to="." method="combat_logic"]
