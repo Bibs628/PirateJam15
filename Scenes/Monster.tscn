@@ -13,11 +13,11 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y0l0"]
 size = Vector2(88, 87)
 
-[sub_resource type="Animation" id="Animation_usmyr"]
-resource_name = "Defense"
-
 [sub_resource type="Animation" id="Animation_k8rs1"]
 resource_name = "Attack"
+
+[sub_resource type="Animation" id="Animation_usmyr"]
+resource_name = "Defense"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_crtcy"]
 _data = {
@@ -31,6 +31,7 @@ radius = 450.0
 [node name="Monster" type="CharacterBody2D" groups=["Monster_Listener"]]
 position = Vector2(802, -512)
 script = ExtResource("1_knm4i")
+raycast_distance = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -69,4 +70,8 @@ bus = &"FX"
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collide_with_areas = true
 
-[connection signal="body_entered" from="Awareness" to="." method="_on_awareness_body_entered"]
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Awareness" to="." method="on_awareness_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="random_movement_timer"]
