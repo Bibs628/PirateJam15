@@ -11,7 +11,7 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7fh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yd7kp"]
-size = Vector2(108, 105)
+size = Vector2(58.6667, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y0l0"]
 size = Vector2(88, 87)
@@ -56,6 +56,7 @@ texture = ExtResource("2_60vv6")
 sprite_frames = SubResource("SpriteFrames_g7fh6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_yd7kp")
 
