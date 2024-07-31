@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Game Jam"
-run/main_scene="res://Scenes/Game.tscn"
+config/name="Pixelworld"
+config/description="Pixelworld is a simple jump and run game where you are an alchemist who
+uses different elements which you can change and based on these you will
+have different skills and abilities."
+run/main_scene="res://Scenes/LoadingScreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Assets/GUI/Wind.png"
+config/icon="res://Assets/GUI/Flame.png"
 
 [display]
 
