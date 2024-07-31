@@ -63,6 +63,7 @@ script = ExtResource("1_e00er")
 
 [node name="Player" parent="." groups=["State_Listeners"] instance=ExtResource("3_su7d1")]
 position = Vector2(88, -194.021)
+max_fireball_distance = 350
 jump_velocity = -200
 
 [node name="SampleTile" parent="." instance=ExtResource("2_k8w5k")]
