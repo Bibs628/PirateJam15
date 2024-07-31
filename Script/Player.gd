@@ -65,11 +65,7 @@ func _input(_event):
 			var mouse: Vector2 = get_global_mouse_position()
 			mouse_fireball.emit(mouse, max_fireball_distance)
 			print("Feuerball positioniert auf %s. Maximale Distanz betraegt %s." % [mouse, max_fireball_distance])
-		else:
-			weapon.get_node("Timer").start()
-			weapon.visible = true
-			weapon.get_node("CollisionShape2D").disabled = false
-		tutorial_signal(3, "Attacke")
+			tutorial_signal(3, "Attacke")
 
 
 func _physics_process(delta):
@@ -87,7 +83,6 @@ func _physics_process(delta):
 	var direction = Input.get_axis("Left", "Right")
 	if is_on_floor():
 		if direction:
-			animation.play("Walk")
 			velocity.x = direction * speed
 			tutorial_signal(0, "Laufen")
 			weapon.rotation_degrees = 180 if direction < 0 else 0

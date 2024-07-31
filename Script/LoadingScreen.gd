@@ -13,8 +13,6 @@ func _ready():
 
 func _process(_delta):
 	scene_status = ResourceLoader.load_threaded_get_status(game, progress)
-	$Progress.text = str(floor(progress[0] * 100)) + "%"
-	var scene_string = str(floor(progress[0] * 100)) + "%"
 	var scene_int = floor(progress[0] * 100)
 	
 	if scene_int >= 25:
