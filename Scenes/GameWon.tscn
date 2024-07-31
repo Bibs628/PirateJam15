@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://3f1yjcuehwux"]
+
+[ext_resource type="Script" path="res://Script/LoadingScreen.gd" id="1_s5rws"]
+[ext_resource type="FontFile" uid="uid://d3eoogdvs5ag5" path="res://Assets/GUI/I-pixel-u.ttf" id="2_nduih"]
+[ext_resource type="Texture2D" uid="uid://car77r3h71etl" path="res://Assets/GUI/Flame.png" id="3_uax3v"]
+[ext_resource type="Texture2D" uid="uid://cgdngy3k3qas" path="res://Assets/GUI/Plant.png" id="4_1x25n"]
+[ext_resource type="Texture2D" uid="uid://g0g5dqvbu768" path="res://Assets/GUI/Wind.png" id="5_3rrob"]
+[ext_resource type="Texture2D" uid="uid://12inb3j7hfux" path="res://Assets/GUI/Stein.png" id="6_gceg3"]
+
+[sub_resource type="Theme" id="Theme_dj572"]
+default_font = ExtResource("2_nduih")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdc8m"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_uca4y"]
+
+[node name="GameWon" type="CanvasLayer"]
+script = ExtResource("1_s5rws")
+
+[node name="Progress" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_dj572")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+text = "0%"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qdc8m")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 2
+offset_left = 40.0
+offset_top = 330.0
+offset_right = 3712.0
+offset_bottom = 1270.0
+scale = Vector2(0.5, 0.5)
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="Fire" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_uax3v")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Plant" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_1x25n")
+
+[node name="Wind" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_3rrob")
+
+[node name="Earth" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_gceg3")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -876.0
+offset_right = 876.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(1920, 360)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[center]YOU WON![/center]"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_top = 850.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = SubResource("Theme_uca4y")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Thanks for playing :)[/center]"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="start_game"]

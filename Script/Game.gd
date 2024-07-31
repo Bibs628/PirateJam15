@@ -58,3 +58,12 @@ func send_mouse_position(mouse: Vector2, max_fireball_distance: int):
 	
 	if monster:
 		weapon.throw_fireball(mouse, max_fireball_distance)
+
+
+func won_game(body):
+	if body.name == "Player":
+		call_deferred("change_to_win_screen")
+
+
+func change_to_win_screen():
+	get_tree().change_scene_to_file("res://Scenes/GameWon.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://chcj7rlau5rj2"]
+[gd_scene load_steps=15 format=3 uid="uid://chcj7rlau5rj2"]
 
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_e00er"]
 [ext_resource type="PackedScene" uid="uid://gf5gpao83uvo" path="res://Scenes/Tile.tscn" id="2_k8w5k"]
@@ -57,6 +57,9 @@ resource_name = "new_animation"
 _data = {
 "new_animation": SubResource("Animation_ps38b")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dcx7"]
+size = Vector2(193, 82.5)
 
 [node name="Game" type="Node2D" groups=["Gameplay", "UI"]]
 script = ExtResource("1_e00er")
@@ -133,6 +136,13 @@ bbcode_enabled = true
 text = "[center]FINISHED!
 YOU WON[/center]"
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(4085, -287)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(42.5, -10.25)
+shape = SubResource("RectangleShape2D_2dcx7")
+
 [connection signal="alchemist_died" from="Player" to="." method="alchemist_died"]
 [connection signal="alchemist_element" from="Player" to="." method="alchemist_element_change"]
 [connection signal="alchemist_hp" from="Player" to="." method="alchemist_hp_change"]
@@ -140,3 +150,4 @@ YOU WON[/center]"
 [connection signal="tutorial_trigger" from="Player" to="." method="change_tutorial_stage"]
 [connection signal="monster_died" from="Monster" to="." method="monster_died"]
 [connection signal="monster_hp" from="Monster" to="." method="monster_hp_change"]
+[connection signal="body_entered" from="Area2D" to="." method="won_game"]
