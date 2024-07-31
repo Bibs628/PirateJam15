@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Script/Classes/Monster.gd" id="1_knm4i"]
 [ext_resource type="Texture2D" uid="uid://bgqiudrg5s07x" path="res://icon.svg" id="2_itrjv"]
 [ext_resource type="Script" path="res://Script/Classes/Combat/Hurtbox.gd" id="3_ethaj"]
-[ext_resource type="AudioStream" uid="uid://btyndtmnh82px" path="res://Sound/UI/Damage_player.wav" id="4_8ngqv"]
+[ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="4_4g7cb"]
 [ext_resource type="PackedScene" uid="uid://barhbxkyxtuvh" path="res://Scenes/FireWeapon.tscn" id="5_niqf0"]
 [ext_resource type="Script" path="res://Script/Classes/Combat/Hitbox.gd" id="6_pwlxe"]
 [ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="7_q6v85"]
@@ -45,8 +45,7 @@ size = Vector2(192, 108)
 [node name="Monster" type="CharacterBody2D" groups=["Monster_Listener"]]
 position = Vector2(802, -512)
 script = ExtResource("1_knm4i")
-raycast_distance = 25
-speed = 150
+raycast_distance = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -79,8 +78,8 @@ libraries = {
 position = Vector2(0, 1.5)
 shape = SubResource("CircleShape2D_sfsys")
 
-[node name="Defense" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_8ngqv")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4g7cb")
 bus = &"FX"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
