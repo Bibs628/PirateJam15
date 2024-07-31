@@ -7,4 +7,4 @@ func game_over():
 
 func on_button_pressed():
 	print("Neues Spiel wird gestartet.")
-	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/LoadingScreen.tscn")
