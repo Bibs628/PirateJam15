@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://barhbxkyxtuvh"]
+[gd_scene load_steps=5 format=3 uid="uid://barhbxkyxtuvh"]
 
 [ext_resource type="Script" path="res://Script/Classes/Combat/FireWeapon.gd" id="1_n8f0v"]
 [ext_resource type="Texture2D" uid="uid://bkag0bvenkxlt" path="res://Assets/Charakter/Fireball.png" id="2_6lj1h"]
+[ext_resource type="AudioStream" uid="uid://ci4ektk1radll" path="res://Sound/Flame.wav" id="3_7wfue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ssls"]
 radius = 62.0
@@ -23,5 +24,8 @@ position = Vector2(101, -3)
 rotation = -1.5708
 scale = Vector2(0.5, 0.592593)
 shape = SubResource("CircleShape2D_2ssls")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7wfue")
 
 [connection signal="body_entered" from="Area2D" to="." method="character_in_area"]

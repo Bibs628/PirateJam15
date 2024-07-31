@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://us0fcgwbrsum"]
 
 [ext_resource type="Script" path="res://Script/Classes/Monster.gd" id="1_knm4i"]
-[ext_resource type="Texture2D" uid="uid://bgqiudrg5s07x" path="res://icon.svg" id="2_itrjv"]
+[ext_resource type="Texture2D" uid="uid://b0ne7c20b2v31" path="res://Assets/Enemy/Enemy.png" id="2_60vv6"]
 [ext_resource type="Script" path="res://Script/Classes/Combat/Hurtbox.gd" id="3_ethaj"]
-[ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="4_4g7cb"]
+[ext_resource type="AudioStream" uid="uid://btyndtmnh82px" path="res://Sound/UI/Damage_player.wav" id="4_lae5d"]
 [ext_resource type="PackedScene" uid="uid://barhbxkyxtuvh" path="res://Scenes/FireWeapon.tscn" id="5_niqf0"]
 [ext_resource type="Script" path="res://Script/Classes/Combat/Hitbox.gd" id="6_pwlxe"]
 [ext_resource type="Texture2D" uid="uid://b4f417q4kr6d5" path="res://Assets/missing4.png" id="7_q6v85"]
@@ -48,8 +48,9 @@ script = ExtResource("1_knm4i")
 raycast_distance = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_itrjv")
+position = Vector2(-2.86102e-05, 1.99998)
+scale = Vector2(0.088, 0.0880001)
+texture = ExtResource("2_60vv6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g7fh6")
@@ -78,8 +79,8 @@ libraries = {
 position = Vector2(0, 1.5)
 shape = SubResource("CircleShape2D_sfsys")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_4g7cb")
+[node name="Defense" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lae5d")
 bus = &"FX"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

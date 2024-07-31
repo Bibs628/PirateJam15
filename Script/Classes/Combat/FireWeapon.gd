@@ -15,6 +15,7 @@ signal player_dmg
 func _ready():
 	global_position = weapon_position
 	rotation_degrees = rad_to_deg(get_angle_to(vector_to_mouse))
+	$AudioStreamPlayer2D.play()
 
 
 func _physics_process(_delta):
