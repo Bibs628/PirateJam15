@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://3f1yjcuehwux"]
+[gd_scene load_steps=9 format=3 uid="uid://3f1yjcuehwux"]
 
-[ext_resource type="Script" path="res://Script/LoadingScreen.gd" id="1_s5rws"]
 [ext_resource type="FontFile" uid="uid://d3eoogdvs5ag5" path="res://Assets/GUI/I-pixel-u.ttf" id="2_nduih"]
 [ext_resource type="Texture2D" uid="uid://car77r3h71etl" path="res://Assets/GUI/Flame.png" id="3_uax3v"]
 [ext_resource type="Texture2D" uid="uid://cgdngy3k3qas" path="res://Assets/GUI/Plant.png" id="4_1x25n"]
@@ -16,7 +15,6 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="Theme" id="Theme_uca4y"]
 
 [node name="GameWon" type="CanvasLayer"]
-script = ExtResource("1_s5rws")
 
 [node name="Progress" type="RichTextLabel" parent="."]
 offset_right = 40.0
