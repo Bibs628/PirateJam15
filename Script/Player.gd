@@ -87,7 +87,6 @@ func _physics_process(delta):
 	var direction = Input.get_axis("Left", "Right")
 	if is_on_floor():
 		if direction:
-			animation.play("Walk")
 			velocity.x = direction * speed
 			tutorial_signal(0, "Laufen")
 			weapon.rotation_degrees = 180 if direction < 0 else 0

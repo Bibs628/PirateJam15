@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://12inb3j7hfux" path="res://Assets/GUI/Stein.png" id="5_adl8b"]
 [ext_resource type="Texture2D" uid="uid://b56kubwa3qgwr" path="res://Assets/GUI/HP_Heart.png" id="6_6a4df"]
 [ext_resource type="Texture2D" uid="uid://desb2o4eujtt7" path="res://Assets/GUI/HP_EnemyHeart.png" id="7_ncdu3"]
-[ext_resource type="AudioStream" uid="uid://mwoaqvuh7ddk" path="res://Sound/missing.wav" id="8_c8abt"]
+[ext_resource type="AudioStream" uid="uid://crxdry4rpg8qi" path="res://Sound/UI/Bubbles_edited.mp3" id="8_h1f6p"]
 [ext_resource type="PackedScene" uid="uid://c2x160u2a0dle" path="res://Scenes/Tutorial.tscn" id="9_7w7cn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jknhp"]
@@ -206,7 +206,7 @@ label_settings = SubResource("LabelSettings_to63x")
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_c8abt")
+stream = ExtResource("8_h1f6p")
 
 [node name="Tutorial" parent="." instance=ExtResource("9_7w7cn")]
 layout_mode = 1

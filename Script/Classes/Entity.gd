@@ -9,8 +9,6 @@ extends CharacterBody2D
 @export var health_points: int = 3;
 var entity_can_fly: bool = false
 
-@onready var sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 signal Defense
@@ -42,7 +40,7 @@ func deal_damage():
 
 func take_damage(dmg: int):
 	health_points -= dmg
-
+	$Defense.play()
 	if health_points <= 0: 
 		health_points = 0
 		visible = false
